@@ -2,8 +2,9 @@
     <div class="team-management">
         <h3>Team management</h3>
         
-        <div class="container-occup">
-          <div class="occup"><h4>Consultant</h4>
+        <div ref="container" class="container-occup" draggable="true" @dragenter="startdrag" >
+          <div class="occup">
+            <h4>Consultant</h4>
              <div class="nbrNadd">
                 <p>5</p>
                 <i class="fa-solid fa-plus"></i>
@@ -38,7 +39,20 @@
 
 <script>
 export default{
-    name:'TeamManagement'
+    name:'TeamManagement',
+    mounted(){
+        console.log(this.$refs.container)
+        return this.$refs.container
+    },
+    methods:{
+        startdrag(){
+       
+         this.$refs.container.addEventListener('dragstart',(event)=>{
+            console.log(event)
+         })
+        }
+    }
+  
 }
 
 </script>
@@ -59,7 +73,6 @@ overflow-x: hidden;
     display: flex;
     gap: 1em;
     width: fit-content;
-    overflow-x: scroll;
 
 }
 

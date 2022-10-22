@@ -5,14 +5,18 @@
             <i class="fa-solid fa-landmark"></i>
         </router-link>
         </div>
-        <div class="icone"  @click="teamOver">
+        <div class="icone" >
         <router-link to="/myteam">
             <i class="fa-regular fa-file"></i>
         </router-link>
         </div>
+        <router-link to="/myshared">
+
         <div class="icone">
             <i class="fa-solid fa-folder-tree"></i>
         </div>
+    </router-link>
+
         <div class="icone">
             <i class="fa-regular fa-user"></i>
         </div>
@@ -23,12 +27,7 @@
 <script>
 export default{
    name:'MyFooter',
-   methods:{
-     teamOver(){
-        console.log('hey')
-     }
 
-   }
 
 }
 
