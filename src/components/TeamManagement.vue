@@ -6,8 +6,10 @@
           <div class="occup">
             <h4>Consultant</h4>
              <div class="nbrNadd">
-                <p>5</p>
+                <p >{{nbrConsult}}</p>
+                <router-link to="/consultant">
                 <i class="fa-solid fa-plus"></i>
+            </router-link>
              </div>
           </div>
           <div class="occup">
@@ -44,13 +46,20 @@ export default{
         console.log(this.$refs.container)
         return this.$refs.container
     },
+    props: {
+        nbrConsult: String,
+    },
     methods:{
         startdrag(){
        
          this.$refs.container.addEventListener('dragstart',(event)=>{
             console.log(event)
          })
-        }
+        },
+         addConsult(task){
+          console.log(task)
+         }
+        
     }
   
 }

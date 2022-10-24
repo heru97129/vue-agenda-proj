@@ -2,6 +2,7 @@ import { createRouter,createWebHistory } from "vue-router";
 import MyHome from '../MyHome.vue'
 import MyTeam from '../MyTeam.vue'
 import MyShared from '../MyShared.vue'
+import MyConsultant from  '../MyConsultant.vue'
 console.log(MyHome,MyTeam)
 
 const routes = [{
@@ -16,6 +17,10 @@ const routes = [{
     path: '/myshared',
     name: 'MyShared',
     component: MyShared
+},{
+    path: '/consultant',
+    name: 'MyConsultant',
+    component: MyConsultant
 }]
  const router = createRouter({
     history:createWebHistory(),
