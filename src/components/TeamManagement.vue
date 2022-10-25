@@ -2,7 +2,7 @@
     <div class="team-management">
         <h3>Team management</h3>
         
-        <div ref="container" class="container-occup" draggable="true" @dragenter="startdrag" >
+        <div ref="container" class="container-occup"  >
           <div class="occup">
             <h4>Consultant</h4>
              <div class="nbrNadd">
@@ -15,24 +15,23 @@
           <div class="occup">
              <h4>Dev Ops</h4>
              <div class="nbrNadd">
-                <p>12</p>
+                <p>{{nbrDev}}</p>
+                <router-link to="/devops">
+
                 <i class="fa-solid fa-plus"></i>
+                </router-link>
              </div>
           </div>
           <div class="occup">
              <h4>Employee</h4>
              <div class="nbrNadd">
-                <p>50</p>
+                <p>{{nbrEmploye}}</p>
+                <router-link to="/NewEmployees">
                 <i class="fa-solid fa-plus"></i>
+            </router-link>
              </div>
           </div>
-          <div class="occup">
-             <h4>Consultant</h4>
-             <div class="nbrNadd">
-                <p>5</p>
-                <i class="fa-solid fa-plus"></i>
-             </div>
-          </div>
+         
         </div>
 
     </div>
@@ -48,17 +47,11 @@ export default{
     },
     props: {
         nbrConsult: String,
+        nbrDev: String,
+        nbrEmploye:String
     },
     methods:{
-        startdrag(){
        
-         this.$refs.container.addEventListener('dragstart',(event)=>{
-            console.log(event)
-         })
-        },
-         addConsult(task){
-          console.log(task)
-         }
         
     }
   
