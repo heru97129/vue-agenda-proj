@@ -1,49 +1,68 @@
 <template>
     <div class="Design">
       <h4>Design department</h4>
-      <div class="fiche-perso">
-        <div class="perso-d">
-          <img src="/images/womancart.jpg" alt="">
+      <div class="fiche-perso" >
+        <div class="perso-d"  v-for="(dataR,index) in datadesign"  :key="index">
+          <router-link :to="/post/+ dataR.nom">
+
+          <img src="{{dataR.image}}" alt="">
+        </router-link>
+
           <div class="nameNfunc">
-            <p>Melanie Martinez</p>
-            <p class="func">design lead</p>
+            <p>{{dataR.nom}}</p>
+            <p class="func">{{dataR.profession}}</p>
           </div>
+
         </div>
-        <div class="perso-d">
-            <img src="/images/foucault.jpg" alt="">
-          <div class="nameNfunc">
-            <p>Michel Foucault</p>
-            <p class="func">ui/ux designer</p>
-          </div>
-        </div>
+
       </div>
+
     </div>
 
 
     <div class="Dev">
       <h4>Development department</h4>
       <div class="fiche-perso">
-        <div class="perso-dev">
-          <img src="/images/James.jpg" alt="">
+        <div class="fiche-perso" >
+        <div class="perso-d"  v-for="(dataD,index) in datadeve"  :key="index">
+          <router-link :to="/post/+ dataD.nom">
+
+          <img src={{dataD.image}} alt="">
+        </router-link>
+
           <div class="nameNfunc">
-            <p>Richard James</p>
-            <p class="func">Back-End Developer</p>
+            <p>{{dataD.nom}}</p>
+            <p class="func">{{dataD.profession}}</p>
           </div>
         </div>
-        <div class="perso-dev">
-            <img src="/images/camus.jpg" alt="">
-          <div class="nameNfunc">
-            <p>Albet Camus</p>
-            <p class="func">Front-End Developer</p>
-          </div>
-        </div>
+
+      </div>
       </div>
     </div>
 </template>
 
 <script>
+
 export default{
-    name:'MyDepartment'
+    name:'MyDepartment',
+    props:{
+      datadesign:Array,
+      datadeve:Array
+    },
+ 
+    data(){
+ 
+     return {
+      designData : this.datadesign,
+       devData : this.datadeve,
+      func:this.datarender()
+     }
+    },
+    methods:{
+      datarender(){
+        console.log(this.datadeve,this.datadesign)
+      }
+    }
 }
 </script>
 

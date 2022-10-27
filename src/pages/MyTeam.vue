@@ -1,7 +1,7 @@
 <template>
     <MyHeader />
-    <TeamOverView />
-    <MyDepartment />
+    <TeamOverView   />
+    <MyDepartment :datadesign="datadesign" :datadeve="datadeve" />
   <MyFooter />
 
 </template>
@@ -19,6 +19,32 @@ export default{
     MyFooter,
     TeamOverView,
     MyDepartment
+},
+data(){
+  return {
+   datadeve : '',
+   datadesign : '',
+  func:this.fetchTasks()
+
+
+  }
+
+},
+methods:{
+  async fetchTasks(){
+     const res = await fetch(`http://localhost:5000/tasks`)
+     const data = await res.json()
+     let design=  data.filter(el =>  el.profession == 'designer')
+     let dev =  data.filter(el =>  el.profession == 'developper')
+
+     this.datadesign = design
+     this.datadeve = dev  
+     console.log(design,'my team',dev)
+   
+  },
+
+ 
+
 }
 
 }

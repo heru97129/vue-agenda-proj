@@ -1,15 +1,19 @@
 <template>
     <div class="Footer">
+        <router-link to="/">
+
         <div class="icone">
-            <router-link to="/">
             <i class="fa-solid fa-landmark"></i>
-        </router-link>
         </div>
-        <div class="icone" >
+    </router-link>
+
         <router-link to="/myteam">
+
+        <div class="icone" >
             <i class="fa-regular fa-file"></i>
-        </router-link>
         </div>
+    </router-link>
+
         <router-link to="/myshared">
 
         <div class="icone">
@@ -27,7 +31,7 @@
 <script>
 export default{
    name:'MyFooter',
-
+  
 
 }
 
@@ -47,6 +51,10 @@ export default{
 }
 .icone{
  color: rgba(255, 255, 255, 0.714);
+}
+
+.router-link-active i{
+  color: rgb(98, 206, 98);
 }
 
 

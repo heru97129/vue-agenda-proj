@@ -5,8 +5,8 @@ import MyShared from '../pages/MyShared.vue'
 import MyNewConsultant from  '../pages/MyNewConsultant.vue'
 import MyNewDevops from '../pages/MyNewDevops'
 import MyNewEmployee from '../pages/MyNewEmployee.vue'
-console.log(MyHome,MyTeam)
-
+import PostView from '../pages/PostView.vue' 
+import AuthorPost from '../pages/AuthorPost.vue' 
 const routes = [{
     path: '/',
     name: 'MyHome',
@@ -31,6 +31,16 @@ const routes = [{
     path: '/NewEmployees',
     name: 'MyNewEmployee',
     component:MyNewEmployee
+},{
+    path: '/post/:id',
+    name: 'PostView',
+    component: PostView,
+    children: [
+        {
+                path: 'posts',
+            component: AuthorPost,
+        }
+]
 }]
  const router = createRouter({
     history:createWebHistory(),

@@ -1,45 +1,28 @@
 {
   "tasks": [
     {
-      "id": 79283,
-      "nom": "gregory",
-      "profession": "developper",
-      "myConsultant": true,
-      "myemployer": true
-    },
-    {
-      "id": 83149,
-      "nom": "gregory",
-      "profession": "developper",
-      "myConsultant": true,
-      "myemployer": true
-    },
-    {
-      "id": 91936,
-      "nom": "mathieu",
-      "profession": "conferencier",
-      "myConsultant": true,
-      "myemployer": true
-    },
-    {
-      "id": 12491,
-      "nom": "gregory",
-      "profession": "develloper",
-      "myDev": true,
-      "myemployer": true
-    },
-    {
-      "id": 48810,
-      "nom": "mathieu",
-      "profession": "BACK END",
-      "myDev": true,
-      "myemployer": true
-    },
-    {
-      "id": 95121,
-      "nom": "kevin marshall",
+      "id": 67446,
+      "nom": "mathieu barlagne",
       "profession": "designer",
-      "myemployer": true
+      "myDev": true
+    },
+    {
+      "id": 92477,
+      "nom": "kevin garnier",
+      "profession": "designer",
+      "myDev": true
+    },
+    {
+      "id": 33900,
+      "nom": "gregory",
+      "profession": "developper",
+      "myDev": true
+    },
+    {
+      "id": 298,
+      "nom": "kevin marshall",
+      "profession": "developper",
+      "myDev": true
     }
   ]
 }
