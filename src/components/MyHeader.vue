@@ -1,7 +1,7 @@
 <template>
     <div class="header">
      <img src="images/DERAY+NPG+2K.jpg" alt="">
-     <i class="fa-regular fa-bell"></i>
+     <h2>Hello!<br>Gregory.B</h2>
     </div>
 </template>
 
@@ -18,11 +18,12 @@ export default{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row-reverse;
 }
 
 .header img{
-width: 50px;
-height: 50px;
+width: 60px;
+height: 60px;
 border-radius: 50%;
 
 
