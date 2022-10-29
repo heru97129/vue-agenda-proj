@@ -1,46 +1,26 @@
 {
   "tasks": [
     {
-      "id": 67446,
-      "nom": "mathieu barlagne",
-      "profession": "designer",
-      "myDev": true
-    },
-    {
-      "id": 92477,
-      "nom": "kevin garnier",
-      "profession": "designer",
-      "myDev": true
-    },
-    {
-      "id": 33900,
-      "nom": "Gregory Beaujour",
-      "profession": "developper",
-      "myDev": true
-    },
-    {
-      "id": 35145,
-      "text": "we are the one ",
-      "nom": "kevin marshall",
+      "id": 15158,
+      "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
+      "date": "Sat Oct 29 2022 11:56:27 ",
+      "image":"https://www.apkmod.co/wp-content/uploads/2020/03/camart-cartoon-photo.png",
+      "nom": "joe rogan",
+      "status": "Fullstack",
+      "title": "new integration",
+      "occ": "developper",
       "task": true
     },
     {
-      "id": 36825,
-      "text": "nuthing can fuck with me",
-      "nom": "mathieu barlagne",
+      "id": 90680,
+      "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
+      "date": "Sat Oct 29 2022 12:00:18 ",
+      "nom": "pablo picasso",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtaeYwUawGGEwjKCDx4b1hXzzZKtdDX7YSsQ&usqp=CAU",
+      "status": "ux/ui Designer",
+      "title": "new maquette",
+      "occ": "design",
       "task": true
-    },
-    {
-      "id": 64130,
-      "text": "ddddd",
-      "nom": "dddd",
-      "task": true
-    },
-    {
-      "id": 75426,
-      "nom": "christian mouloung",
-      "profession": "conseiller marketing",
-      "myemployer": true
     }
   ]
 }

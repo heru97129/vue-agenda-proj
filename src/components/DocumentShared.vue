@@ -12,11 +12,11 @@
       </div> 
     <form  class="add-form" v-if="textAdd">
         <div class="button-occupation">
-            <button type="button" class="btn-shared">
+            <button @click="clickOcc" ref="design" name="design" type="button" class="btn-shared">
                 <i class="fa-solid fa-palette"></i>
                 <p>Designs</p>
             </button>
-            <button type="button" class="btn-shared">
+            <button @click="clickOcc" name="developper" ref="dev" type="button" class="btn-shared">
                 <i class="fa-regular fa-file-code"></i>
                 <p>Developper</p>
             </button>
@@ -25,9 +25,14 @@
         <label for="">Name : </label>
         <input class="input-text" v-model="nom"  type="text" name="nom" placeholder="Add Task"> 
       </div>
+      <div class="form-control">
+        <label for="">status : </label>
+        <input class="input-text" v-model="status"  type="text" name="status" placeholder="Add Task"> 
+      </div>
+      
           <div class="form-control">
-        <label for="">Date : </label>
-        <input class="input-text" v-model="date"  type="text" name="date" placeholder="Add Task"> 
+        <label for="">titre : </label>
+        <input class="input-text" v-model="title"  type="text" name="title" placeholder="Add Task"> 
       </div>
       <div class="form-control">
         <label for="">Task : </label>
@@ -38,8 +43,14 @@
     </form>
     <div v-for="(task,index) in dataTask" :key="index">
         <div class="taskDocument">
-            <h3>   {{task.nom}}</h3>
-            <p>{{task.text}}</p>
+            <div class="task-left">
+                <h4> {{task.nom}}</h4>
+            <p>{{task.date}}</p>
+            </div>
+            <div class="task-right">
+                <p>{{task.occ}}</p>
+            </div>
+          
         </div>
 
     
@@ -54,6 +65,9 @@ export default{
         nom:'',
         date:'',
         text:'',
+        title:'',
+        status:'',
+        occupation:'',
         textAdd:false,
      }
     },
@@ -62,33 +76,46 @@ export default{
     },
 
     created(){
-        this.dataRender()
-
+   console.log(this.dataTask)
     },
     methods:{
         ToggleText(){
            this.textAdd = !this.textAdd
         },
+        clickOcc(e){
+           if(e.target.name === 'developper'){
+              this.occupation = e.target.name
+              e.target.style = 'border:1px solid rgba(0, 191, 255, 0.475);'
+              this.$refs.design.style = '    border: 1px solid rgba(0, 0, 0, 0.173);'
+            }else{
+                this.occupation = e.target.name
+
+            e.target.style = 'border:1px solid rgba(0, 191, 255, 0.475);'
+            this.$refs.dev.style = '    border: 1px solid rgba(0, 0, 0, 0.173);'
+
+           }
+                   
+        },
         onSubmit(e){
             e.preventDefault()
             console.log(this.dataTask)
-
+            let str = new Date().toString()
             const newTask = {
               id : Math.floor(Math.random()  * 100000),
               text:this.text,
-              date:this.date,
+              date:str.substring(0,25),
               nom:this.nom,
+              status:this.status,
+              title:this.title,
+              occ:this.occupation,
               task: true
          
           }
         this.$emit('add-task',newTask)
+        return this.dataTask
 
         },
-        dataRender(){
-        console.log( this.dataTask)
-    
-       
-        }
+      
     }
 }
 
@@ -123,14 +150,6 @@ border: none;
 
 }
 
-.taskDocument{
-    border: 1px solid rgba(0, 0, 0, 0.355);
-    padding: 1em 1em;
-    border-radius: 20px;
-    margin-bottom: 1em;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-
-}
 .taskDocument h3,.taskDocument p{
     margin: 0;
 }
@@ -154,10 +173,13 @@ border: none;
 .btn-shared i{
     font-size: 2.2em;
     color: rgba(0, 0, 0, 0.705);
+    pointer-events: none;
 }
 
 .btn-shared p{
     font-size: 1.5em;
+    pointer-events: none;
+
 }
 
 .p-doc{
@@ -197,5 +219,36 @@ justify-content: space-between;
     border: none;
     background-color: black;
     color: white;
+}
+
+/* task */
+
+.taskDocument{
+    position: relative;
+    margin-bottom: 1.5EM;
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskDocument::after{
+    content: '';
+    position: absolute;
+    bottom: -10PX;
+    width: 100%;
+    height: 1PX;
+    background-color: rgba(0, 0, 0, 0.205);
+}
+.taskDocument h4{
+    text-transform: capitalize !important;
+}
+.taskDocument p{
+    font-size: .8em;
+    margin-top: .5em;
+
+}
+
+.task-right{
+    display: flex;
+    align-items: center;
 }
 </style>

@@ -5,7 +5,7 @@
         <div class="perso-d"  v-for="(dataR,index) in datadesign"  :key="index">
           <router-link :to="/post/+ dataR.nom">
 
-          <img src="{{dataR.image}}" alt="">
+          <img :src="dataR.image" alt="">
         </router-link>
 
           <div class="nameNfunc">
@@ -27,12 +27,12 @@
         <div class="perso-d"  v-for="(dataD,index) in datadeve"  :key="index">
           <router-link :to="/post/+ dataD.nom">
 
-          <img src={{dataD.image}} alt="">
+          <img :src="dataD.image" alt="">
         </router-link>
 
           <div class="nameNfunc">
             <p>{{dataD.nom}}</p>
-            <p class="func">{{dataD.profession}}</p>
+            <p class="func">{{dataD.occ}}</p>
           </div>
         </div>
 

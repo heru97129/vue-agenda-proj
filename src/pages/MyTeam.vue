@@ -34,8 +34,8 @@ methods:{
   async fetchTasks(){
      const res = await fetch(`http://localhost:5000/tasks`)
      const data = await res.json()
-     let design=  data.filter(el =>  el.profession == 'designer')
-     let dev =  data.filter(el =>  el.profession == 'developper')
+     let design=  data.filter(el =>  el.occ == 'design')
+     let dev =  data.filter(el =>  el.occ == 'developper')
 
      this.datadesign = design
      this.datadeve = dev  

@@ -1,6 +1,6 @@
 <template>
 <MyHeader />
-<DocumentShared  :dataTask="taskData"/>
+<DocumentShared @add-task="addTask" :dataTask="taskData"/>
 <MyFooter />
 
 </template>
@@ -20,7 +20,7 @@ export default{
    },
    data(){
     return{
-        task:[],
+        tasks:[],
         taskData:[],
     
     }
