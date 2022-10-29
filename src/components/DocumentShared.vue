@@ -36,6 +36,14 @@
 
     </div>
     </form>
+    <div v-for="(task,index) in dataTask" :key="index">
+        <div class="taskDocument">
+            <h3>   {{task.nom}}</h3>
+            <p>{{task.text}}</p>
+        </div>
+
+    
+    </div>
 </template>
 
 
@@ -47,11 +55,15 @@ export default{
         date:'',
         text:'',
         textAdd:false,
-        func:this.dataRender()
      }
     },
     props:{
-     dataTask:Array
+        dataTask:Object
+    },
+
+    created(){
+        this.dataRender()
+
     },
     methods:{
         ToggleText(){
@@ -59,10 +71,12 @@ export default{
         },
         onSubmit(e){
             e.preventDefault()
+            console.log(this.dataTask)
+
             const newTask = {
               id : Math.floor(Math.random()  * 100000),
               text:this.text,
-              date:this.day,
+              date:this.date,
               nom:this.nom,
               task: true
          
@@ -71,7 +85,9 @@ export default{
 
         },
         dataRender(){
-        console.log(this.dataTask)
+        console.log( this.dataTask)
+    
+       
         }
     }
 }
@@ -98,11 +114,25 @@ export default{
 .title-btnShow .close{
 background-color: red;
 border: none;
+
 }
 .title-btnShow .open{
 background-color: rgb(0, 255, 106);
 border: none;
 
+
+}
+
+.taskDocument{
+    border: 1px solid rgba(0, 0, 0, 0.355);
+    padding: 1em 1em;
+    border-radius: 20px;
+    margin-bottom: 1em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+}
+.taskDocument h3,.taskDocument p{
+    margin: 0;
 }
 .button-occupation{
     display: flex;

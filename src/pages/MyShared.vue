@@ -1,6 +1,6 @@
 <template>
 <MyHeader />
-<DocumentShared @add-task="addTask" :dataTask="taskData"/>
+<DocumentShared  :dataTask="taskData"/>
 <MyFooter />
 
 </template>
@@ -22,8 +22,11 @@ export default{
     return{
         task:[],
         taskData:[],
-        func:this.fetchTasks()
+    
     }
+   },
+   created(){
+        this.fetchTasks()
    },
    methods:{
     async fetchTasks(){
@@ -31,10 +34,10 @@ export default{
      const data = await res.json()
     //  consult
     let consult =  data.filter(el =>  el.task === true)
- this.taskData = consult
- return this.taskData
+     this.taskData = consult
+    console.log(this.taskData)
+    return this.taskData
      },
-
      async addTask(task){
       const res = await fetch('http://localhost:5000/tasks',{
         method:'POST',
@@ -44,9 +47,10 @@ export default{
         body: JSON.stringify(task)
 
       })
-       
-      let data = res.json()
-      this.task = [...this.task,data]
+      
+      const data = await res.json()
+
+       this.tasks = [...this.tasks,data]
      },
    }
 
