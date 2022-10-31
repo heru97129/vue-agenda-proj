@@ -69,6 +69,7 @@ export default{
         status:'',
         occupation:'',
         textAdd:false,
+        
      }
     },
     props:{
@@ -77,6 +78,7 @@ export default{
 
     created(){
    console.log(this.dataTask)
+   this.dataTask
     },
     methods:{
         ToggleText(){
@@ -100,6 +102,13 @@ export default{
             e.preventDefault()
             console.log(this.dataTask)
             let str = new Date().toString()
+
+            if(this.status === '' || this.nom == '' || this.title == ''
+             || this.text === '' 
+            ){
+               alert('failed to fullfilled')
+               return
+            }
             const newTask = {
               id : Math.floor(Math.random()  * 100000),
               text:this.text,
@@ -111,7 +120,14 @@ export default{
               task: true
          
           }
+          this.nom ='',
+        this.date ='',
+        this.text ='',
+        this.title ='',
+        this.status ='',
+        this.occupation ='',
         this.$emit('add-task',newTask)
+        // location.reload()
         return this.dataTask
 
         },

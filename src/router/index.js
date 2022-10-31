@@ -6,7 +6,10 @@ import MyNewConsultant from  '../pages/MyNewConsultant.vue'
 import MyNewDevops from '../pages/MyNewDevops'
 import MyNewEmployee from '../pages/MyNewEmployee.vue'
 import PostView from '../pages/PostView.vue' 
-import AuthorPost from '../pages/AuthorPost.vue' 
+import ProfilPage from "@/pages/ProfilPage.vue";
+
+
+
 const routes = [{
     path: '/',
     name: 'MyHome',
@@ -35,13 +38,13 @@ const routes = [{
     path: '/post/:id',
     name: 'PostView',
     component: PostView,
-    children: [
-        {
-                path: 'posts',
-            component: AuthorPost,
-        }
+ },{
+    path: '/profil',
+    name: 'ProfilPage',
+    component: ProfilPage,  
+ }
+
 ]
-}]
  const router = createRouter({
     history:createWebHistory(),
     routes

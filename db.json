@@ -4,7 +4,7 @@
       "id": 15158,
       "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
       "date": "Sat Oct 29 2022 11:56:27 ",
-      "image":"https://www.apkmod.co/wp-content/uploads/2020/03/camart-cartoon-photo.png",
+      "image": "https://www.apkmod.co/wp-content/uploads/2020/03/camart-cartoon-photo.png",
       "nom": "joe rogan",
       "status": "Fullstack",
       "title": "new integration",
@@ -16,9 +16,29 @@
       "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
       "date": "Sat Oct 29 2022 12:00:18 ",
       "nom": "pablo picasso",
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtaeYwUawGGEwjKCDx4b1hXzzZKtdDX7YSsQ&usqp=CAU",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtaeYwUawGGEwjKCDx4b1hXzzZKtdDX7YSsQ&usqp=CAU",
       "status": "ux/ui Designer",
       "title": "new maquette",
+      "occ": "design",
+      "task": true
+    },
+    {
+      "id": 34260,
+      "text": "aedazedzedz",
+      "date": "Mon Oct 31 2022 14:37:41 ",
+      "nom": "joe rogan",
+      "status": "Fullstack",
+      "title": "New features",
+      "occ": "developper",
+      "task": true
+    },
+    {
+      "id": 73691,
+      "text": "xazxazxaz",
+      "date": "Mon Oct 31 2022 14:38:33 ",
+      "nom": "kevin marshall",
+      "status": "Fullstack",
+      "title": "New maquette",
       "occ": "design",
       "task": true
     }

@@ -29,6 +29,8 @@ export default{
         this.fetchTasks()
    },
    methods:{
+
+
     async fetchTasks(){
      const res = await fetch(`http://localhost:5000/tasks`)
      const data = await res.json()
@@ -38,6 +40,9 @@ export default{
     console.log(this.taskData)
     return this.taskData
      },
+
+
+
      async addTask(task){
       const res = await fetch('http://localhost:5000/tasks',{
         method:'POST',
@@ -49,8 +54,16 @@ export default{
       })
       
       const data = await res.json()
-
-       this.tasks = [...this.tasks,data]
+    this.taskData.map(el =>{
+        console.log(el.nom,data.nom)
+        if(el.nom === data.nom){
+          console.log('match')
+        return  data.text1 = [...this.tasks,data]
+        }
+      })
+    console.log(data,'data',this.taskData)
+   
+      //  this.tasks = [...this.tasks,data]
      },
    }
 

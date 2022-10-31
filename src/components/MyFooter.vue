@@ -20,10 +20,12 @@
             <i class="fa-solid fa-folder-tree"></i>
         </div>
     </router-link>
+    <router-link to="/profil">
 
         <div class="icone">
             <i class="fa-regular fa-user"></i>
         </div>
+    </router-link>
     </div>
 </template>
 

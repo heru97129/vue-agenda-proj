@@ -1,7 +1,12 @@
 <template>
     <div class="fiche-perso" >
+        <div class="return">
+            <router-link to="/myteam" >
+            <i class="fa-solid fa-chevron-left"></i>
+        </router-link>
+        </div>
         <div class="perso-d">
-
+   
 
           <div class="profil-user">
             <div class="img-profil">
@@ -13,11 +18,21 @@
 
             
             <div class="tasks-done">
-                <h2>Task</h2>
+                <h4 class="task-title">All the tasks you wrote recently</h4>
                 <div class="task">
-                     <h4>Title : {{dataShared.title}}</h4>
+                     <h5>Title : {{dataShared.title}}</h5>
                     <p class="func"> {{dataShared.text}}</p>
-                     <p class="date-shared">{{dataShared.date}}</p>
+                    <div class="date-div">
+                        <div class="icone-agenda">
+                            <i class="fa-regular fa-calendar-check"></i>
+                            <div>
+                                <p class="create">Create At</p>
+                                <p class="date-shared">{{dataShared.date}}</p>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
               </div>       
@@ -58,14 +73,26 @@
 
 <style>
 .date-shared{
-    font-size: .8em ;
+    font-size: .6em ;
     color: rgba(0, 0, 0, 0.607);
 }
 
+.fiche-perso{
+    position: relative;
+}
+
+.return{
+    position: absolute;
+    top: 0%;
+    left: 4%;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.049);
+    padding: .5em 1em;
+}
 /* img profil */
 
 .profil-user{
-margin: 0 auto;
+margin: 3em auto 0 auto;
 text-align: center;
 
 }
@@ -86,6 +113,40 @@ margin-bottom: 1em;
     width: 100%;
     height: 100%;
     border-radius: 50%;
+
+}
+
+/* task div */
+
+.tasks-done{
+    padding: 0 .5em;
+
+}
+
+.task-title{
+    color: coral;
+
+}
+
+/* icine date */
+.icone-agenda{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+    .icone-agenda p{
+        margin: 0;
+    }
+.fa-calendar-check{
+    font-size: 1.8em;
+    margin: 0;
+    color: coral;
+}
+
+.create{
+    font-size: .8em;
+    font-weight: 900;
 
 }
 
