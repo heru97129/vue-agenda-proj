@@ -54,13 +54,8 @@ export default{
       })
       
       const data = await res.json()
-    this.taskData.map(el =>{
-        console.log(el.nom,data.nom)
-        if(el.nom === data.nom){
-          console.log('match')
-        return  data.text1 = [...this.tasks,data]
-        }
-      })
+    
+      this.task = [...this.tasks,data]
     console.log(data,'data',this.taskData)
    
       //  this.tasks = [...this.tasks,data]

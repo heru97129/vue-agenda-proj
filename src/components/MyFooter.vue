@@ -1,6 +1,6 @@
 <template>
     <div class="Footer">
-        <router-link to="/">
+        <router-link to="/home">
 
         <div class="icone">
             <i class="fa-solid fa-landmark"></i>

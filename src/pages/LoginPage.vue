@@ -1,26 +1,37 @@
 <template>
 
  <div class="create-acccount">
+    <div class="brand">
+            <h3>Scribes</h3>
+        </div>
+        <div class="return">
+            <router-link to="/" >
+            <i class="fa-solid fa-chevron-left"></i>
+        </router-link>
+        </div>
     <div class="container">
-    <h2>Create an account</h2>
+    <h2 v-if="show">Create an account</h2>
+    <h2 v-else class="welcome">Welcome back </h2>
     <p>let's get started with your 30 day free trial</p>
 
-    <form action="" class="form">
+    <form action="" class="form" >
       <label for="">
-        <input type="text" name="nom" placeholder="Nom">
+        <input type="text" v-model='nom' name="nom" placeholder="Nom" v-if="show">
 
       </label>
-      <label for="">
-        <input type="text" name="email" placeholder="Email">
-        
+      <label for="" >
+        <input type="text" v-model="email" name="email" placeholder="Email">    
       </label>
       <label for="">
-        <input type="text" name="password" placeholder="Password">
+        <input type="text" v-model="password" name="password" placeholder="Password">
         
       </label>
+      <p v-if="message === 'connexion'" class="success">Connexion in wainting...</p>
+      <p v-else-if="message === 'error'" class="failed">Failed to connect</p>
+
         <div class="button-form">
-            <button>Create account</button>
-            <button>Already have account</button>
+            <button  @click="create">Create account</button>
+            <button @click="logSelf">Already have account</button>
         </div>
     </form>
 </div>
@@ -28,9 +39,118 @@
 
 </template>
 
+
+<script>
+
+export default{
+    
+
+    name:'LoginPage',
+    data:()=>{
+      return {
+        show:false,
+        nom:"",
+        email:"",
+        password:"",
+        logs:[],
+        message : ""
+      }
+    },
+    mounted(){
+      this.show = true
+      this.fetchTasks()
+    },
+    methods:{
+    async  create(e){
+        e.preventDefault()
+     
+        const log = {
+            nom : this.nom,
+            email:this.email,
+            password: this.password,
+            profil : true
+        }
+        if(log.nom != "" || log.email != "" || log.password != "" ){
+            const res = await fetch('http://localhost:5000/tasks',{
+        method:'POST',
+        headers :{
+          'content-type' :'application/json',
+        },
+        body: JSON.stringify(log)
+
+      })
+      
+       const data = await res.json()
+       this.logs = [...this.logs,data]
+        console.log(data)   
+        this.nom = "" 
+         this.email = "" 
+         this.password = "" 
+        }else{
+            this.show = true
+        
+        }
+       
+      },
+
+    //   login
+     async logSelf(e){
+        e.preventDefault()
+        this.show = false
+
+
+        const log = {
+            nom : this.nom,
+            email:this.email,
+            password: this.password
+        }
+        if(log.email != "" || log.password != "" ){
+            let fetch = this.fetchTasks()
+           
+           fetch.then(db =>{
+            db.map(data =>{
+               
+                 let {email,password} = data
+
+                if(log.email === email && log.password === password){
+                    console.log(email,log.password,'nom ok ')
+                    this.message = 'connexion'
+                    setTimeout(()=>{
+                        this.$router.push('/home')
+                    },1000)
+                }else{
+                console.log(email,log.password,'error ')
+                this.message = 'error'
+                return 
+                }
+            })
+           } )
+        }
+      
+      },
+      async fetchTasks(){
+     const res = await fetch(`http://localhost:5000/tasks`)
+     const data = await res.json()
+   
+     console.log(data,'rightdata')
+     return data
+   
+  },
+    }
+}
+
+</script>
+
 <style scoped>
 
+.failed{
+    color:red
+}
+.success{
+    color:green
+}
 .create-acccount{
+    position:relative;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -38,12 +158,32 @@
 
 }
 
+.brand{
+    position:absolute;
+    top: 1%;
+    left: 8%;
+}
+
+.return{
+    position:absolute;
+    top: 2.5%;
+    left: 80%;
+    width: 10px;
+
+  
+}
 .create-acccount h2,.create-acccount p{
     margin: 0;
 }
 
 .create-acccount p{
     font-size: .7em;
+}
+
+/* loggin */
+
+.welcome{
+    text-align: center;
 }
 .form{
     display: flex;
@@ -60,6 +200,7 @@
     margin-bottom: 1EM;
     padding: .5EM .5EM;
     border-bottom: 1px solid rgba(0, 0, 0, 0.624);
+    outline: none;
 }
 .button-form{
     display:flex;
