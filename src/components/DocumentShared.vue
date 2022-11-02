@@ -23,16 +23,16 @@
         </div> 
       <div class="form-control">
         <label for="">Name : </label>
-        <input class="input-text" v-model="nom"  type="text" name="nom" placeholder="Add Task"> 
+        <input class="input-text" v-model="nom"  type="text" name="nom" placeholder="Add name"> 
       </div>
       <div class="form-control">
         <label for="">status : </label>
-        <input class="input-text" v-model="status"  type="text" name="status" placeholder="Add Task"> 
+        <input class="input-text" v-model="status"  type="text" name="status" placeholder="Add status"> 
       </div>
       
           <div class="form-control">
         <label for="">titre : </label>
-        <input class="input-text" v-model="title"  type="text" name="title" placeholder="Add Task"> 
+        <input class="input-text" v-model="title"  type="text" name="title" placeholder="Add title"> 
       </div>
       <div class="form-control">
         <label for="">Task : </label>
@@ -69,7 +69,7 @@ export default{
         status:'',
         occupation:'',
         textAdd:false,
-        
+        newtask:{}
      }
     },
     props:{
@@ -109,8 +109,9 @@ export default{
                alert('failed to fullfilled')
                return
             }
-            const newTask = {
-              id : Math.floor(Math.random()  * 100000),
+           const text = {
+         
+                    id : Math.floor(Math.random()  * 100000),
               text:this.text,
               date:str.substring(0,25),
               nom:this.nom,
@@ -118,15 +119,19 @@ export default{
               title:this.title,
               occ:this.occupation,
               task: true
-         
-          }
+            
+           
+           }
+           this.newtask.tasks = []
+           
+         this.newtask.tasks.push({...text})
           this.nom ='',
         this.date ='',
         this.text ='',
         this.title ='',
         this.status ='',
         this.occupation ='',
-        this.$emit('add-task',newTask)
+        this.$emit('add-task',this.newtask)
         // location.reload()
         return this.dataTask
 

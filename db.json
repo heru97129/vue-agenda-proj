@@ -23,24 +23,40 @@
       "task": true
     },
     {
-      "nom": "batman",
-      "email": "bat@gmail.com",
-      "password": "robin",
+      "tasks": [
+        {
+          "id": 65858,
+          "text": "fzefzef",
+          "date": "Wed Nov 02 2022 21:48:08 ",
+          "nom": "fzefzef",
+          "status": "ffzefzef",
+          "title": "fzefze",
+          "occ": "",
+          "task": true
+        }
+      ],
       "id": 90681
     },
     {
-      "nom": "christian mouloung",
-      "email": "chris@gmail.com",
-      "password": "jesus",
+      "nom": "negus",
+      "email": "negus@gmail.com",
+      "password": "osiris",
       "profil": true,
-      "id": 90682
+      "id": 90684
     },
     {
-      "nom": "christian mouloung",
-      "email": "chris@gmail.com",
-      "password": "jesus",
-      "profil": true,
-      "id": 90683
+      "nom": "",
+      "email": "negus@gmail.com",
+      "password": "osiris",
+      "profil": false,
+      "id": 90685
+    },
+    {
+      "nom": "",
+      "email": "negus@gmail.com",
+      "password": "osiris",
+      "profil": false,
+      "id": 90686
     }
   ]
 }

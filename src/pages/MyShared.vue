@@ -37,26 +37,26 @@ export default{
     //  consult
     let consult =  data.filter(el =>  el.task === true)
      this.taskData = consult
-    console.log(this.taskData)
+    console.log(this.taskData,'fetch shared')
     return this.taskData
      },
 
 
 
      async addTask(task){
-      const res = await fetch('http://localhost:5000/tasks',{
-        method:'POST',
+      const res = await fetch('http://localhost:5000/tasks/90681',{
+        method:'PUT',
         headers :{
           'content-type' :'application/json',
         },
         body: JSON.stringify(task)
 
       })
-      
-      const data = await res.json()
     
-      this.task = [...this.tasks,data]
-    console.log(data,'data',this.taskData)
+      const data = await res.json()
+    console.log(data)
+      this.task.append([...this.tasks,data])
+    console.log(data,'data',this.tasks,'add data')
    
       //  this.tasks = [...this.tasks,data]
      },

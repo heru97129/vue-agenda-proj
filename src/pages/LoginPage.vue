@@ -23,7 +23,7 @@
         <input type="text" v-model="email" name="email" placeholder="Email">    
       </label>
       <label for="">
-        <input type="text" v-model="password" name="password" placeholder="Password">
+        <input type="password" v-model="password" name="password" placeholder="Password">
         
       </label>
       <p v-if="message === 'connexion'" class="success">Connexion in wainting...</p>

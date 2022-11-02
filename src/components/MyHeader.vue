@@ -1,13 +1,17 @@
 <template>
     <div class="header">
      <img src="images/DERAY+NPG+2K.jpg" alt="">
-     <h2>Hello!<br>Gregory.B</h2>
+     <h2>Hello!<br> <span class="name">{{title}}</span> </h2>
     </div>
 </template>
 
 <script>
 export default{
-    name : 'MyHeader'
+    name : 'MyHeader',  
+    props: {
+        title: String,
+        
+    },
 }
 </script>
 
@@ -28,6 +32,10 @@ border-radius: 50%;
 
 
 }
+
+.name {
+    color: red;
+    }
 
 .header i{
     font-size: 1.5em;
