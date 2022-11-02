@@ -7,11 +7,21 @@ import MyNewDevops from '../pages/MyNewDevops'
 import MyNewEmployee from '../pages/MyNewEmployee.vue'
 import PostView from '../pages/PostView.vue' 
 import ProfilPage from "@/pages/ProfilPage.vue";
-
+import GetStarted from "@/pages/GetStarted.vue";
+import LoginPage from "@/pages/LoginPage.vue";
 
 
 const routes = [{
     path: '/',
+    name: 'GetStarted',
+    component: GetStarted 
+},{
+    path: '/login',
+    name: 'LoginPage',
+    component: LoginPage
+},
+{
+    path: '/home',
     name: 'MyHome',
     component: MyHome
 },{
