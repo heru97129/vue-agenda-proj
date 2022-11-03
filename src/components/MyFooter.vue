@@ -43,7 +43,7 @@ export default{
 
 .Footer{
     width: 90%;
-    margin:  2em auto 0 auto;
+    margin:  4em auto 0 auto;
     border-radius: 20px;
     background-color: black;
     display: flex;
