@@ -21,26 +21,29 @@
       "title": "new maquette",
       "occ": "design",
       "task": true
+    }
+  ],
+  "profils": [
+    {
+      "nom": "negus",
+      "email": "negus@gmail.com",
+      "password": "Lamentin13",
+      "profil": false,
+      "id": 1
     },
     {
-      "nom": "batman",
-      "email": "bat@gmail.com",
-      "password": "robin",
-      "id": 90681
+      "nom": "negus",
+      "email": "negus@gmail.com",
+      "password": "Lamentin13",
+      "profil": false,
+      "id": 2
     },
     {
-      "nom": "christian mouloung",
-      "email": "chris@gmail.com",
-      "password": "jesus",
+      "nom": "mathieu",
+      "email": "beaujourgregory@gmail.com",
+      "password": "osiris",
       "profil": true,
-      "id": 90682
-    },
-    {
-      "nom": "christian mouloung",
-      "email": "chris@gmail.com",
-      "password": "jesus",
-      "profil": true,
-      "id": 90683
+      "id": 3
     }
   ]
 }

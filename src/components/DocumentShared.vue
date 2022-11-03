@@ -69,6 +69,8 @@ export default{
         status:'',
         occupation:'',
         textAdd:false,
+        taskIt : [],
+        compte : 0
         
      }
     },
@@ -126,8 +128,10 @@ export default{
         this.title ='',
         this.status ='',
         this.occupation ='',
-        this.$emit('add-task',newTask)
+       this.taskIt.push(newTask)
+        this.$emit('add-task',this.taskIt)
         // location.reload()
+
         return this.dataTask
 
         },
