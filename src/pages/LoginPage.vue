@@ -23,6 +23,10 @@
         <input type="text" v-model="email" name="email" placeholder="Email">    
       </label>
       <label for="">
+        <input type="occupation" v-if="show" v-model="occupation" name="occupation" placeholder="occupation">
+        
+      </label>
+      <label for="">
         <input type="password" v-model="password" name="password" placeholder="Password">
         
       </label>
@@ -42,6 +46,7 @@
 
 <script>
 
+
 export default{
     
 
@@ -53,7 +58,11 @@ export default{
         email:"",
         password:"",
         logs:[],
-        message : ""
+        message : "",
+        occupation:'',
+        profil : [],
+        saveName :'',
+        saveId : ''
       }
     },
     mounted(){
@@ -68,10 +77,11 @@ export default{
             nom : this.nom,
             email:this.email,
             password: this.password,
+            occupation :this.occupation,
             profil : true
         }
         if(log.nom != "" || log.email != "" || log.password != "" ){
-            const res = await fetch('http://localhost:5000/tasks',{
+            const res = await fetch('http://localhost:5000/profils',{
         method:'POST',
         headers :{
           'content-type' :'application/json',
@@ -86,6 +96,8 @@ export default{
         this.nom = "" 
          this.email = "" 
          this.password = "" 
+            
+     
         }else{
             this.show = true
         
@@ -97,45 +109,83 @@ export default{
      async logSelf(e){
         e.preventDefault()
         this.show = false
-
-
+// data logo
         const log = {
             nom : this.nom,
             email:this.email,
-            password: this.password
+            password: this.password,
+            profil :this.profil
         }
+
+//  si les change son vide lancé la function fetch 
         if(log.email != "" || log.password != "" ){
             let fetch = this.fetchTasks()
            
            fetch.then(db =>{
             db.map(data =>{
                
-                 let {email,password} = data
+                 let {email,password,id,nom} = data
 
                 if(log.email === email && log.password === password){
-                    console.log(email,log.password,'nom ok ')
-                    this.message = 'connexion'
-                    setTimeout(()=>{
-                        this.$router.push('/home')
-                    },1000)
+                    console.log(email,log.password,'nom ok ',id)
+                 this.message = 'connexion'
+                 this.saveName = nom
+                 this.saveId = id
+
+                  this.changProfil()
+
+                  return 
                 }else{
                 console.log(email,log.password,'error ')
                 this.message = 'error'
-                return 
                 }
             })
            } )
+
         }
       
       },
+
+
+    //   fetch
       async fetchTasks(){
-     const res = await fetch(`http://localhost:5000/tasks`)
+     const res = await fetch(`http://localhost:5000/profils`)
      const data = await res.json()
    
      console.log(data,'rightdata')
      return data
    
-  },
+     },
+
+     async changProfil(){
+           if(this.message === 'connexion'){
+            console.log('yeu')
+
+    this.profil = true
+            const profils = {
+            nom : this.saveName,
+            email:this.email,
+            password: this.password,
+            profil : this.profil
+           }
+              const resu = await fetch(`http://localhost:5000/profils/${this.saveId}`,{
+                method:'PUT',
+               headers :{
+                 'content-type' :'application/json',
+               },
+                body: JSON.stringify(profils)
+
+                 })
+
+                 const data = await resu.json()
+                //  profils = [...profils,data]
+
+                  console.log(data)
+                setTimeout(()=>{
+                        this.$router.push('/home')
+                    },1000)
+           }
+     }
     }
 }
 

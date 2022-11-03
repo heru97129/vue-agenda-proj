@@ -69,7 +69,7 @@ export default{
         status:'',
         occupation:'',
         textAdd:false,
-        newtask:{}
+        
      }
     },
     props:{
@@ -131,8 +131,9 @@ export default{
         this.title ='',
         this.status ='',
         this.occupation ='',
-        this.$emit('add-task',this.newtask)
+        this.$emit('add-task',newTask)
         // location.reload()
+
         return this.dataTask
 
         },

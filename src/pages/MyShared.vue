@@ -53,10 +53,8 @@ export default{
 
       })
     
-      const data = await res.json()
-    console.log(data)
-      this.task.append([...this.tasks,data])
-    console.log(data,'data',this.tasks,'add data')
+      // this.tasks.push([...this.tasks,data])
+    console.log(data,'data',this.taskData)
    
       //  this.tasks = [...this.tasks,data]
      },
