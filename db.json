@@ -28,21 +28,23 @@
       "nom": "batman",
       "email": "bat@gmail.com",
       "password": "robin",
+      "profil": false,
       "id": 90681
     },
     {
       "nom": "christian mouloung",
       "email": "chris@gmail.com",
       "password": "jesus",
-      "profil": true,
-      "id": 90682
+      "profil": false,
+      "id": 90683
     },
     {
-      "nom": "christian mouloung",
-      "email": "chris@gmail.com",
-      "password": "jesus",
-      "profil": true,
-      "id": 90683
+      "nom": "noname",
+      "email": "mop@gmail.com",
+      "password": "Elliot87",
+      "occupation": "Back-End Developper",
+      "profil": false,
+      "id": 90684
     }
   ]
 }

@@ -23,6 +23,71 @@
 
 </template>
 
+<script scoped>
+
+export default{
+    data(){
+    return{
+        profil:false,
+        saveId:''
+    }
+    },
+   mounted(){
+    this.fetchTasks()
+
+    },
+    methods:{
+        async ProfilReset(lastLog){
+           
+            const profils = {
+         
+            profil : this.profil
+           }
+     const res = await fetch(`http://localhost:5000/profils/${lastLog}`,{
+     method:'PATCH',
+     headers :{
+     'content-type' :'application/json',
+     },
+     body: JSON.stringify(profils)
+
+        })
+   
+    
+        const data = await res.json()
+        console.log(data,'get started')
+     return data
+   
+     }, 
+     async fetchTasks(){
+     const res = await fetch(`http://localhost:5000/profils`)
+     const data = await res.json()
+   
+     console.log(data,'rightdata')
+     data.map(user => {
+
+        // id and status's state 
+        let  {id,profil} = user
+   
+// if profil is true save the last id connected
+        if(profil) {
+       
+            console.log(id) 
+            this.saveId = id
+            this.ProfilReset(this.saveId)
+
+        }else{
+            console.log('no body was logged before')
+            return
+        }
+     })
+   
+     },  
+    }
+}
+
+
+</script>
+
 
 <style scoped>
 .container-login{

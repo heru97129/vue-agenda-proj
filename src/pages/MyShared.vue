@@ -52,7 +52,7 @@ export default{
         body: JSON.stringify(task)
 
       })
-    
+     let data = res.json()
       // this.tasks.push([...this.tasks,data])
     console.log(data,'data',this.taskData)
    

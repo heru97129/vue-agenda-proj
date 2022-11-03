@@ -78,7 +78,7 @@ export default{
             email:this.email,
             password: this.password,
             occupation :this.occupation,
-            profil : true
+            profil : false
         }
         if(log.nom != "" || log.email != "" || log.password != "" ){
             const res = await fetch('http://localhost:5000/profils',{
@@ -163,13 +163,11 @@ export default{
 
     this.profil = true
             const profils = {
-            nom : this.saveName,
-            email:this.email,
-            password: this.password,
+         
             profil : this.profil
            }
               const resu = await fetch(`http://localhost:5000/profils/${this.saveId}`,{
-                method:'PUT',
+                method:'PATCH',
                headers :{
                  'content-type' :'application/json',
                },

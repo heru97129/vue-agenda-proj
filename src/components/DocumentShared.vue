@@ -131,7 +131,7 @@ export default{
         this.title ='',
         this.status ='',
         this.occupation ='',
-        this.$emit('add-task',newTask)
+        this.$emit('add-task',this.newTask.tasks)
         // location.reload()
 
         return this.dataTask
