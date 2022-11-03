@@ -30,7 +30,7 @@
         <input type="password" v-model="password" name="password" placeholder="Password">
         
       </label>
-      <p v-if="message === 'connexion'" class="success">Connexion in wainting...</p>
+      <p  v-if="message === 'connexion' " class="success">Connexion in wainting...</p>
       <p v-else-if="message === 'error'" class="failed">Failed to connect</p>
 
         <div class="button-form">
@@ -52,6 +52,7 @@ export default{
 
     name:'LoginPage',
     data:()=>{
+      
       return {
         show:false,
         nom:"",
@@ -62,17 +63,19 @@ export default{
         occupation:'',
         profil : [],
         saveName :'',
-        saveId : ''
+        saveId : '',
+        catchErr:false
       }
     },
     mounted(){
       this.show = true
       this.fetchTasks()
+
     },
     methods:{
     async  create(e){
         e.preventDefault()
-     
+        
         const log = {
             nom : this.nom,
             email:this.email,
@@ -80,6 +83,10 @@ export default{
             occupation :this.occupation,
             profil : false
         }
+
+        // if(this.nom.length > 9){
+        //   alert('9 Chraracters Max!!!')
+        // }
         if(log.nom != "" || log.email != "" || log.password != "" ){
             const res = await fetch('http://localhost:5000/profils',{
         method:'POST',
@@ -122,25 +129,33 @@ export default{
             let fetch = this.fetchTasks()
            
            fetch.then(db =>{
-            db.map(data =>{
+            db.map((data,i)=>{
                
                  let {email,password,id,nom} = data
 
                 if(log.email === email && log.password === password){
                     console.log(email,log.password,'nom ok ',id)
-                 this.message = 'connexion'
+                 this.catchErr = true
                  this.saveName = nom
                  this.saveId = id
+                 this.message = 'connexion'
 
                   this.changProfil()
-
+                    
                   return 
-                }else{
-                console.log(email,log.password,'error ')
-                this.message = 'error'
+              
                 }
+              
+                if(i == db.length-1 && !this.catchErr){
+                  console.log('yo')
+                  this.message = 'error'
+                }
+                
             })
-           } )
+           } ).catch(err =>{
+            console.log(err)
+            this.message = 'error'
+           })
 
         }
       
@@ -181,7 +196,7 @@ export default{
                   console.log(data)
                 setTimeout(()=>{
                         this.$router.push('/home')
-                    },1000)
+                    },2000)
            }
      }
     }

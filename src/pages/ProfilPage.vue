@@ -4,8 +4,8 @@
     <div class="image-occ">
         <img src="https://i.thecartoonist.me/jerry-cartoon.png" alt="">
         <div class="cont-name-occ">
-            <p>Gregory Beaujour</p>
-        <p>Front-End Dev</p>
+            <p>{{this.infos.nom}}</p>
+        <p>{{this.infos.occupation}}</p>
         </div>
      
     </div>
@@ -33,16 +33,15 @@ export default{
    data(){ 
   return {
    tasks : '',
-   func:this.fetchTasks()
+   infos:''
+
 
 
   }},
-  created(){
-    this.fetchTasks()
-
-  
-  },
-    methods:{
+mounted(){
+this.fetchTasks()
+this.fetchInfosProfil()
+},methods:{
         async fetchTasks(){
      const res = await fetch(`http://localhost:5000/tasks`)
      const data = await res.json()
@@ -54,6 +53,17 @@ export default{
    })
 
 
+  },
+  async fetchInfosProfil(){
+     const res = await fetch(`http://localhost:5000/profils`)
+     const data = await res.json()
+     let task =  data.filter(el =>  el.profil == true)
+
+  
+     
+     task.map(user=> this.infos = user)
+
+    console.log(this.infos)
   },
 
     }
@@ -124,30 +134,29 @@ background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
 
 
 .cont-name-occ::after{
-content: '';
-position: absolute;
-width: 140px;
-left: 0;
-height: 35px;
-border-radius: 20px;
-bottom: 0;
-background-color: white;
-z-index: -1;
-transform: rotate(-6deg) translateY(15px) translateX(0px);
+    content: '';
+    position: absolute;
+    width: 140px;
+    left: -14%;
+    height: 35px;
+    border-radius: 20px;
+    bottom: 0;
+    background-color: white;
+    z-index: -1;
+    transform: rotate(-6deg) translateY(15px) translateX(0px);
 }
 
 .cont-name-occ::before{
- content: '';
- left: -.6em;
-
- position: absolute;
-  width: 200px;
-  top: .8em;
-  border-radius: 20px;
-  transform: translateY(-25px) translateX(-25px)  rotate(-6deg);
- height: 35px;
- background-color: rgb(255, 255, 255);
- z-index: -1;
+    content: '';
+    left: -17.6%;
+    position: absolute;
+    width: 182px;
+    top: 0.8em;
+    border-radius: 20px;
+    transform: translateY(-25px) translateX(-25px) rotate(-6deg);
+    height: 35px;
+    background-color: rgb(255, 255, 255);
+    z-index: -1;
 
 
 }

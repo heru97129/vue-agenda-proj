@@ -1,6 +1,6 @@
 <template>
 <div>
-    <MyHeader  :title="title"/>
+    <MyHeader  />
     <TeamManagement  :nbrDev="devopsData"  :nbrConsult="consultData" :nbrEmploye="employeData"/>
     <DocumentSign   />
     <MyFooter />
@@ -29,7 +29,7 @@ export default{
         consultData:0,
         devopsData:0,
         employeData:0,
-        title:'',
+  
 
 
         funct:this.fetchTasks(),
@@ -44,13 +44,11 @@ export default{
     let consult =  data.filter(el =>  el.myConsultant == true)
     let devops =  data.filter(el =>  el.myDev == true)
     let employer =  data.filter(el =>  el.myemployer == true)
-    let name =  data.filter(el => el.profil === true)
     // data after filter 
     this.employeData = employer.length
     this.devopsData = devops.length
     this.consultData = consult.length
-console.log(name)
-this.title = name.map(el => el.nom).toString()
+
 // console.log(this.title.toString())
      },
 

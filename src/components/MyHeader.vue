@@ -1,17 +1,53 @@
 <template>
     <div class="header">
      <img src="images/DERAY+NPG+2K.jpg" alt="">
-     <h2>Hello!<br> <span class="name">{{title}}</span> </h2>
+     <h2>Hello!<br> <span class="name">{{this.nom}}</span> </h2>
     </div>
 </template>
 
 <script>
 export default{
     name : 'MyHeader',  
-    props: {
-        title: String,
-        
-    },
+   
+    data(){ 
+  return {
+   tasks : '',
+   infos:'',
+   nom:''
+
+
+
+  }},
+mounted(){
+this.fetchTasks()
+this.fetchInfosProfil()
+},methods:{
+        async fetchTasks(){
+     const res = await fetch(`http://localhost:5000/tasks`)
+     const data = await res.json()
+     let task =  data.filter(el =>  el.task == true)
+
+     this.tasks = task
+   this.tasks.map(el =>{
+   el.date =  el.date.substr(3, 13)
+   })
+
+
+  },
+  async fetchInfosProfil(){
+     const res = await fetch(`http://localhost:5000/profils`)
+     const data = await res.json()
+     let task =  data.filter(el =>  el.profil == true)
+
+  
+     
+     task.map(user=> this.infos = user)
+      this.nom =  this.infos.nom
+      this.nom = this.nom.substring(0, 9)
+    console.log(this.nom)
+  },
+
+    }
 }
 </script>
 

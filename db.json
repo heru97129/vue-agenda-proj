@@ -32,8 +32,9 @@
       "id": 90681
     },
     {
-      "nom": "christian mouloung",
+      "nom": "Christian",
       "email": "chris@gmail.com",
+      "occupation": "Marketing killer",
       "password": "jesus",
       "profil": false,
       "id": 90683
@@ -45,6 +46,14 @@
       "occupation": "Back-End Developper",
       "profil": false,
       "id": 90684
+    },
+    {
+      "nom": "Dimitri",
+      "email": "lex@gmail.com",
+      "password": "Apple25",
+      "occupation": "Service immo",
+      "profil": true,
+      "id": 90685
     }
   ]
 }
