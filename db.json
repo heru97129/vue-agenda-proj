@@ -21,6 +21,16 @@
       "title": "new maquette",
       "occ": "design",
       "task": true
+    },
+    {
+      "id": 96143,
+      "text": "test",
+      "date": "Fri Nov 04 2022 08:18:49 ",
+      "nom": "mathieu",
+      "status": "Fullstack",
+      "title": "test",
+      "occ": "developper",
+      "task": true
     }
   ],
   "profils": [
@@ -54,6 +64,40 @@
       "occupation": "Service immo",
       "profil": false,
       "id": 90685
+    }
+  ],
+  "Group": [
+    {
+      "name": "geo app",
+      "team": [
+        "Christian",
+        "Dimitri"
+      ],
+      "userIdCurrent": {
+        "nom": "noname",
+        "email": "mop@gmail.com",
+        "password": "Elliot87",
+        "occupation": "Back-End Developper",
+        "profil": true,
+        "id": 90684
+      },
+      "id": 1
+    },
+    {
+      "name": "Immo ",
+      "team": [
+        "batman",
+        "noname"
+      ],
+      "userIdCurrent": {
+        "nom": "Dimitri",
+        "email": "lex@gmail.com",
+        "password": "Apple25",
+        "occupation": "Service immo",
+        "profil": true,
+        "id": 90685
+      },
+      "id": 2
     }
   ]
 }

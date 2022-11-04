@@ -25,7 +25,7 @@ export default{
     
     }
    },
-   created(){
+   mounted(){
         this.fetchTasks()
    },
    methods:{
@@ -44,8 +44,8 @@ export default{
 
 
      async addTask(task){
-      const res = await fetch('http://localhost:5000/tasks/90681',{
-        method:'PUT',
+      const res = await fetch('http://localhost:5000/tasks',{
+        method:'POST',
         headers :{
           'content-type' :'application/json',
         },
@@ -53,10 +53,10 @@ export default{
 
       })
      let data = res.json()
-      // this.tasks.push([...this.tasks,data])
     console.log(data,'data',this.taskData)
    
-      //  this.tasks = [...this.tasks,data]
+       this.tasks = [...this.tasks,data]
+       location.reload()
      },
    }
 
