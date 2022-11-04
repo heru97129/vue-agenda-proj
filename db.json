@@ -44,7 +44,7 @@
       "email": "mop@gmail.com",
       "password": "Elliot87",
       "occupation": "Back-End Developper",
-      "profil": false,
+      "profil": true,
       "id": 90684
     },
     {
@@ -52,7 +52,7 @@
       "email": "lex@gmail.com",
       "password": "Apple25",
       "occupation": "Service immo",
-      "profil": true,
+      "profil": false,
       "id": 90685
     }
   ]
