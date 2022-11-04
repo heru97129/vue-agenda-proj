@@ -24,11 +24,13 @@ data(){
   return {
    datadeve : '',
    datadesign : '',
-  func:this.fetchTasks()
 
 
   }
 
+},
+mounted(){
+  this.fetchTasks()
 },
 methods:{
   async fetchTasks(){

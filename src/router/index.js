@@ -9,6 +9,7 @@ import PostView from '../pages/PostView.vue'
 import ProfilPage from "@/pages/ProfilPage.vue";
 import GetStarted from "@/pages/GetStarted.vue";
 import LoginPage from "@/pages/LoginPage.vue";
+import AddGroup from "@/pages/AddGroup.vue";
 
 
 const routes = [{
@@ -19,6 +20,10 @@ const routes = [{
     path: '/login',
     name: 'LoginPage',
     component: LoginPage
+},{
+    path: '/AddGroup',
+    name: 'AddGroup',
+    component: AddGroup
 },
 {
     path: '/home',

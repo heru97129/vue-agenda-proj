@@ -122,16 +122,14 @@ export default{
             
            
            }
-           this.newtask.tasks = []
-           
-         this.newtask.tasks.push({...text})
+          
           this.nom ='',
         this.date ='',
         this.text ='',
         this.title ='',
         this.status ='',
         this.occupation ='',
-        this.$emit('add-task',this.newTask.tasks)
+        this.$emit('add-task',text)
         // location.reload()
 
         return this.dataTask

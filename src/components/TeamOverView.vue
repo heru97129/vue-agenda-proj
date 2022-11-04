@@ -1,8 +1,16 @@
 <template>
     <h4>Team overview</h4>
     <div class="icone-view">
-        <i class="fa-solid fa-grip"></i>
-        <i class="fa-regular fa-calendar-days"></i>
+        <router-link to="/myteam" >
+
+            <i class="fa-solid fa-grip"></i>
+        </router-link>
+
+        <router-link to="/AddGroup">
+
+            <i class="fa-solid fa-user-group"></i>
+
+        </router-link>
         <i class="fa-regular fa-file-code"></i>
         <i class="fa-solid fa-chart-pie"></i>
         <i class="fa-solid fa-cloud"></i>
@@ -35,10 +43,11 @@ font-size: 1.6em;
 border-radius: 20px;
 }
 
-.icone-view i:nth-child(1){
+
+
+.router-link-active i{
     background-color: black;
     color: white;
 }
-
 
 </style>
