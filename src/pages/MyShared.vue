@@ -1,8 +1,9 @@
 <template>
+  <div class="container-shared">
 <MyHeader />
-<DocumentShared @add-task="addTask" :dataTask="taskData"/>
+<DocumentShared @add-task="addTask" :dataTask="taskData" :dataProfil="taskProfil"/>
 <MyFooter />
-
+</div>
 </template>
 
 <script>
@@ -22,11 +23,13 @@ export default{
     return{
         tasks:[],
         taskData:[],
+        taskProfil:[]
     
     }
    },
    mounted(){
         this.fetchTasks()
+        this.fetchProfil()
    },
    methods:{
 
@@ -38,10 +41,18 @@ export default{
     let consult =  data.filter(el =>  el.task === true)
      this.taskData = consult
     console.log(this.taskData,'fetch shared')
-    return this.taskData
+      return this.taskData
      },
 
-
+     async fetchProfil(){
+     const res = await fetch(`http://localhost:5000/Profils`)
+     const data = await res.json()
+    // profil false
+    let profil =  data.filter(el =>  el.profil === false)
+     this.taskProfil = profil
+    console.log(this.taskProfil,'fetch shared')
+      return this.taskProfil
+     },
 
      async addTask(task){
       const res = await fetch('http://localhost:5000/tasks',{
@@ -54,7 +65,7 @@ export default{
       })
      let data = res.json()
     console.log(data,'data',this.taskData)
-   
+        console.log(this.dataProfil,'profil')
        this.tasks = [...this.tasks,data]
        location.reload()
      },
@@ -63,3 +74,10 @@ export default{
 }
 
 </script>
+<style scoped>
+
+.container-shared{
+ 
+}
+
+</style>

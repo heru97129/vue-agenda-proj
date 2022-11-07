@@ -10,7 +10,7 @@
 
           <div class="nameNfunc">
             <p>{{dataR.nom}}</p>
-            <p class="func">{{dataR.profession}}</p>
+            <p class="func">{{dataR.title}}</p>
           </div>
 
         </div>
@@ -32,7 +32,11 @@
 
           <div class="nameNfunc">
             <p>{{dataD.nom}}</p>
-            <p class="func">{{dataD.occ}}</p>
+            <p class="func">{{dataD.title}}</p>
+          </div>
+          <div class="date">
+            <p>{{dataD.date}}</p>
+ 
           </div>
         </div>
 
@@ -61,6 +65,9 @@ export default{
     methods:{
       datarender(){
         console.log(this.datadeve,this.datadesign)
+        // this.datadeve.map(el =>{
+        //   console.log(el)
+        // })
       }
     }
 }

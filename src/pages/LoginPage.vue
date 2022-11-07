@@ -26,6 +26,14 @@
         <input type="occupation" v-if="show" v-model="occupation" name="occupation" placeholder="occupation">
         
       </label>
+      <label  v-if="show"  for="">
+        <select name="" id=""  @change="gender">
+          <option value="">choose your gender </option>
+          <option value="Male">Male</option>
+          <option  value="Femele">Femele</option>
+        </select>
+        
+      </label>
       <label for="">
         <input type="password" v-model="password" name="password" placeholder="Password">
         
@@ -35,7 +43,7 @@
 
         <div class="button-form">
             <button  @click="create">Create account</button>
-            <button @click="logSelf">Already have account</button>
+            <button @click="logSelf">{{show ? 'Already have an account': 'connexion'}}</button>
         </div>
     </form>
 </div>
@@ -58,9 +66,11 @@ export default{
         nom:"",
         email:"",
         password:"",
+        tabPic : [],
         logs:[],
         message : "",
         occupation:'',
+        gendere : '',
         profil : [],
         saveName :'',
         saveId : '',
@@ -70,9 +80,23 @@ export default{
     mounted(){
       this.show = true
       this.fetchTasks()
-
+      
     },
     methods:{
+
+      gender(e){
+        console.log(e.target.value)
+
+        if(e.target.value === 'Femele'){
+          this.tabPic = ['/images/femel1.jpg','/images/femele3.png','/imagesfemele4.png']
+        }else{
+          this.tabPic = ['/images/male1.jfif','/images/male2.jfif','/images/male3.webp']
+
+        }
+
+       this.tabPic = this.tabPic[Math.floor(Math.random() * this.tabPic.length)]
+       console.log(this.tabPic)
+      },
     async  create(e){
         e.preventDefault()
         
@@ -81,6 +105,7 @@ export default{
             email:this.email,
             password: this.password,
             occupation :this.occupation,
+            gendere: this.tabPic,
             profil : false
         }
 
@@ -255,7 +280,7 @@ export default{
     margin-top: 1.5em;
     
 }
-.form label input{
+.form label input,select{
     width: 100%;
     border-top: 0;
     border-left: 0;

@@ -15,7 +15,7 @@
         <label for="">Add people:       </label>
        <select @change="AddPeople"  name="" v-model="select" id="" >
         <option value="">--Please choose an name--</option>
-         <option v-for="(user,index) in users" :key="index" :value="user.nom"  @click="AddPeople">{{user.nom}}</option>
+         <option v-for="(user,index) in users" :key="index" :value="user.nom" >{{user.nom}}</option>
        </select>
       </div>
     <button @click="addTask" class="send">Envoyer</button>
@@ -73,6 +73,8 @@ export default{
      this.fetchGroup(this.userIdCurrent.id)
    
      },
+
+    //  add task
      async addTask(e){
         e.preventDefault()
         console.log(this.users,this.tabPeople,'people')
@@ -93,6 +95,7 @@ export default{
    
        this.groups = [...this.groups,data]
      },
+    
      AddPeople(e){
         console.log('hey')
        this.tabPeople.push(e.target.value)
@@ -112,9 +115,8 @@ export default{
             console.log('yo')
             this.groupData = el
             this.showGroup = true
+            return this.groupData
 
-        }else{
-            this.showGroup = false
         }
     })
     console.log(data)

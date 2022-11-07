@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-     <img src="images/DERAY+NPG+2K.jpg" alt="">
+     <img :src="this.image" alt="">
      <h2>Hello!<br> <span class="name">{{this.nom}}</span> </h2>
     </div>
 </template>
@@ -13,7 +13,8 @@ export default{
   return {
    tasks : '',
    infos:'',
-   nom:''
+   nom:'',
+   image:''
 
 
 
@@ -43,8 +44,9 @@ this.fetchInfosProfil()
      
      task.map(user=> this.infos = user)
       this.nom =  this.infos.nom
+      this.image = this.infos.gendere
       this.nom = this.nom.substring(0, 9)
-    console.log(this.nom)
+    console.log(this.nom,this.image)
   },
 
     }

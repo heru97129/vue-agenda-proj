@@ -2,7 +2,7 @@
    
    <div class="profil_cont">
     <div class="image-occ">
-        <img src="https://i.thecartoonist.me/jerry-cartoon.png" alt="">
+        <img :src="this.infos.gendere" alt="">
         <div class="cont-name-occ">
             <p>{{this.infos.nom}}</p>
         <p>{{this.infos.occupation}}</p>

@@ -1,103 +1,54 @@
 {
   "tasks": [
     {
-      "id": 15158,
+      "id": 60251,
       "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
-      "date": "Sat Oct 29 2022 11:56:27 ",
-      "image": "https://www.apkmod.co/wp-content/uploads/2020/03/camart-cartoon-photo.png",
-      "nom": "joe rogan",
-      "status": "Fullstack",
-      "title": "new integration",
+      "date": "Mon Nov 07 2022 12:57:57 ",
+      "nom": "Sophia",
+      "image": "/images/femel1.jpg",
+      "title": "new shit",
       "occ": "developper",
       "task": true
     },
     {
-      "id": 90680,
+      "id": 46436,
       "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
-      "date": "Sat Oct 29 2022 12:00:18 ",
-      "nom": "pablo picasso",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtaeYwUawGGEwjKCDx4b1hXzzZKtdDX7YSsQ&usqp=CAU",
-      "status": "ux/ui Designer",
-      "title": "new maquette",
-      "occ": "design",
-      "task": true
-    },
-    {
-      "id": 96143,
-      "text": "test",
-      "date": "Fri Nov 04 2022 08:18:49 ",
-      "nom": "mathieu",
-      "status": "Fullstack",
-      "title": "test",
+      "date": "Mon Nov 07 2022 13:29:01 ",
+      "nom": "gregory",
+      "image": "/images/male2.jfif",
+      "title": "new shit",
       "occ": "developper",
-      "task": true
+            "task": true
     }
   ],
   "profils": [
     {
-      "nom": "batman",
-      "email": "bat@gmail.com",
-      "password": "robin",
+      "nom": "Sophia",
+      "email": "Sophia@gmail.com",
+      "password": "Beyonce",
+      "occupation": "Front-End develloper",
+      "gendere": "/images/femel1.jpg",
       "profil": false,
-      "id": 90681
+      "id": 90686
     },
     {
-      "nom": "Christian",
-      "email": "chris@gmail.com",
-      "occupation": "Marketing killer",
-      "password": "jesus",
+      "nom": "gregory",
+      "email": "beaujourgregory@gmail.com",
+      "password": "Osiris",
+      "occupation": "Front-End develloper",
+      "gendere": "/images/male2.jfif",
       "profil": false,
-      "id": 90683
+      "id": 90687
     },
     {
-      "nom": "noname",
-      "email": "mop@gmail.com",
-      "password": "Elliot87",
-      "occupation": "Back-End Developper",
-      "profil": false,
-      "id": 90684
-    },
-    {
-      "nom": "Dimitri",
-      "email": "lex@gmail.com",
-      "password": "Apple25",
-      "occupation": "Service immo",
+      "nom": "mohamed",
+      "email": "moh@gmail.com",
+      "password": "Finley",
+      "occupation": "Front-End develloper",
+      "gendere": "/images/male3.webp",
       "profil": true,
-      "id": 90685
+      "id": 90688
     }
   ],
-  "Group": [
-    {
-      "name": "geo app",
-      "team": [
-        "Christian",
-        "Dimitri"
-      ],
-      "userIdCurrent": {
-        "nom": "noname",
-        "email": "mop@gmail.com",
-        "password": "Elliot87",
-        "occupation": "Back-End Developper",
-        "profil": true,
-        "id": 90684
-      },
-      "id": 1
-    },
-    {
-      "name": "Immo ",
-      "team": [
-        "batman",
-        "noname"
-      ],
-      "userIdCurrent": {
-        "nom": "Dimitri",
-        "email": "lex@gmail.com",
-        "password": "Apple25",
-        "occupation": "Service immo",
-        "profil": true,
-        "id": 90685
-      },
-      "id": 2
-    }
-  ]
+  "Group": []
 }

@@ -13,7 +13,7 @@
                 <img :src="dataShared.image" alt="">
             </div>
             <h2>{{dataShared.nom}}</h2>
-            <p class="func">{{dataShared.status}}</p>
+            <p class="func">{{dataShared.occ}}</p>
          </div>
 
             
@@ -50,8 +50,15 @@
         console.log(this.$route.params.id)
         return{
             func:this.fetchTasks(),
-            dataShared : 20
+            dataShared : 20,
+            image:''
         }
+    },
+    mounted(){
+    this.fetchTasks(),
+    this.imageFormat()
+    this.dataShared
+
     },
     methods:{
         async fetchTasks(){
@@ -62,7 +69,10 @@
     this.dataShared = rightData
      console.log(this.dataShared,'rightdata')
    
-  },
+     },imageFormat(){
+        this.image = `/${this.dataShared.image}`
+        console.log(this.image)
+     }
 
     }
 

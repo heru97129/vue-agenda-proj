@@ -11,24 +11,15 @@
  
       </div> 
     <form  class="add-form" v-if="textAdd">
-        <div class="button-occupation">
-            <button @click="clickOcc" ref="design" name="design" type="button" class="btn-shared">
-                <i class="fa-solid fa-palette"></i>
-                <p>Designs</p>
-            </button>
-            <button @click="clickOcc" name="developper" ref="dev" type="button" class="btn-shared">
-                <i class="fa-regular fa-file-code"></i>
-                <p>Developper</p>
-            </button>
-        </div> 
+  
       <div class="form-control">
         <label for="">Name : </label>
-        <input class="input-text" v-model="nom"  type="text" name="nom" placeholder="Add name"> 
+        <select @change="selectName" name="" id="">
+            <option  value="">Choose a Teamate</option>
+            <option v-for="(name,index) in dataProfil" :key="index" :value="name.nom">{{name.nom}}</option>
+        </select>
       </div>
-      <div class="form-control">
-        <label for="">status : </label>
-        <input class="input-text" v-model="status"  type="text" name="status" placeholder="Add status"> 
-      </div>
+  
       
           <div class="form-control">
         <label for="">titre : </label>
@@ -65,18 +56,22 @@ export default{
         nom:'',
         date:'',
         text:'',
+        image:'',
         title:'',
-        status:'',
         occupation:'',
+        tabObject:{},
+        tabName:[],
         textAdd:false,
         
      }
     },
     props:{
-        dataTask:Object
+        dataTask:Object,
+        dataProfil:Object
+
     },
 
-    created(){
+    mounted(){
    console.log(this.dataTask)
    this.dataTask
     },
@@ -84,40 +79,46 @@ export default{
         ToggleText(){
            this.textAdd = !this.textAdd
         },
-        clickOcc(e){
-           if(e.target.name === 'developper'){
-              this.occupation = e.target.name
-              e.target.style = 'border:1px solid rgba(0, 191, 255, 0.475);'
-              this.$refs.design.style = '    border: 1px solid rgba(0, 0, 0, 0.173);'
-            }else{
-                this.occupation = e.target.name
+        selectName(e){
+            e.preventDefault()
+            this.tabName.push(e.target.value)
+            console.log(this.tabName)
+            let fetch = this.dataProfil
+            fetch.map((el,i)=>{
+        
+               this.tabName.forEach(name =>{
+                console.log(this.tabName[i],el.nom)
 
-            e.target.style = 'border:1px solid rgba(0, 191, 255, 0.475);'
-            this.$refs.dev.style = '    border: 1px solid rgba(0, 0, 0, 0.173);'
-
-           }
-                   
+                if(name === el.nom && !el.profil){
+                console.log(el, 'obje')
+                this.tabObject = el
+                
+               } 
+               })
+            })
+            console.log(this.tabObject)
         },
+ 
         onSubmit(e){
             e.preventDefault()
             console.log(this.dataTask)
             let str = new Date().toString()
 
-            if(this.status === '' || this.nom == '' || this.title == ''
-             || this.text === '' 
-            ){
-               alert('failed to fullfilled')
-               return
-            }
+            // if( this.nom == '' || this.title == ''
+            //  || this.text === '' 
+            // ){
+            //    alert('failed to fullfilled')
+            //    return
+            // }
            const text = {
          
                     id : Math.floor(Math.random()  * 100000),
               text:this.text,
               date:str.substring(0,25),
-              nom:this.nom,
-              status:this.status,
+              nom:this.tabObject.nom,
+              image:this.tabObject.gendere,
               title:this.title,
-              occ:this.occupation,
+              occ:this.tabObject.occupation,
               task: true
             
            
@@ -146,6 +147,8 @@ export default{
 <style scoped>
 .introDoc{
     margin-bottom: 2em;
+    max-height: auto;
+
 }
 
 .title-btnShow{
@@ -219,7 +222,7 @@ justify-content: space-between;
     margin-bottom: 1em;
     padding: 0 .5em;
 }
-.form-control input{
+.form-control input,select{
     width: 100%;
     padding: .5em 0em;
     margin-top: .5em;
