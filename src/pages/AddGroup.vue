@@ -12,9 +12,9 @@
         <input class="input-text" v-model="name"  type="text" name="group" placeholder="Add Group"> 
       </div>
       <div class="form-control">
-        <label for="">Add people:       </label>
-       <select @change="AddPeople"  name="" v-model="select" id="" >
-        <option value="">--Please choose an name--</option>
+        <label for="">Build your team:       </label>
+       <select @change="AddPeople"  name="" id="" >
+        <option>--Please choose an teamate--</option>
          <option v-for="(user,index) in users" :key="index" :value="user.nom" >{{user.nom}}</option>
        </select>
       </div>
@@ -65,7 +65,6 @@ export default{
      const data = await res.json()
      let user =  data.filter(el =>  el.profil == false)
      let userId = data.find(el => el.id && el.profil == true)
-     console.log(userId.id)
      this.userIdCurrent = userId
 
      console.log(user)
@@ -77,7 +76,10 @@ export default{
     //  add task
      async addTask(e){
         e.preventDefault()
-        console.log(this.users,this.tabPeople,'people')
+        //  si l'object est vide ajouter un groupe
+        if(Object.entries(this.groupData).length  <=  0){
+          console.log('test')
+        
         const group = {
           name : this.name,
           team : this.tabPeople,
@@ -92,35 +94,55 @@ export default{
 
       })
      let data = res.json()
-   
+       console.log(Object.entries(this.groupData).length)
        this.groups = [...this.groups,data]
+       location.reload()
+       }else{
+        alert('no non no')
+        console.log(   this.groupData.id)
+        let newTeamate = {
+          team : this.tabPeople
+        }
+         const res = await fetch(`http://localhost:5000/Group/${this.groupData.id}`,{
+        method:'PATCH',
+        headers :{
+          'content-type' :'application/json',
+        },
+        body: JSON.stringify(newTeamate)
+
+        })
+        let data = res.json()
+        this.teamate.push(data)
+        location.reload()
+
+       }
      },
     
      AddPeople(e){
-        console.log('hey')
        this.tabPeople.push(e.target.value)
-       console.log(this.tabPeople)
-
+console.log(this.tabPeople)
     //    const fetch = this.fetchProfil()
 
     },
 
     async fetchGroup(id){
+      console.log(this.groupData,'yo')
         const res = await fetch(`http://localhost:5000/Group`)
      const data = await res.json()
-     
+ 
     data.map(el=>{
-        console.log(el.userIdCurrent.id,id)
         if(el.userIdCurrent.id === id){
-            console.log('yo')
             this.groupData = el
             this.showGroup = true
             return this.groupData
 
         }
     })
-    console.log(data)
+
+      console.log('groupe vide')
+
     return this.groupData
+    
     } 
  
     },
@@ -174,5 +196,25 @@ select{
 
 .group-name span{
 color: red;
+}
+ul{
+  margin: .5em  0;
+  padding: 0;
+}
+
+li{
+  border: 2px solid ;
+  padding: .5em ;
+  border-radius: 10px;
+  list-style: none;
+}
+
+ul:nth-child(odd) li{
+  border-color: rgb(160, 240, 242);
+
+}
+ul:nth-child(even) li{
+  border-color: rgb(236, 186, 255);
+
 }
 </style>

@@ -34,10 +34,7 @@
             <p>{{dataD.nom}}</p>
             <p class="func">{{dataD.title}}</p>
           </div>
-          <div class="date">
-            <p>{{dataD.date}}</p>
- 
-          </div>
+        
         </div>
 
       </div>

@@ -22,8 +22,8 @@ export default{
 },
 data(){
   return {
-   datadeve : '',
-   datadesign : '',
+   datadeve : [],
+   datadesign : [],
 
 
   }
@@ -36,16 +36,51 @@ methods:{
   async fetchTasks(){
      const res = await fetch(`http://localhost:5000/tasks`)
      const data = await res.json()
-     let design=  data.filter(el =>  el.occ == 'design')
-     let dev =  data.filter(el =>  el.occ == 'developper')
+   
+    //  let design=  data.filter(el =>  el.occ == 'design')
+    //  let dev =  data.filter(el =>  el.occ == 'developper')
 
-     this.datadesign = design
-     this.datadeve = dev  
-     console.log(design,'my team',dev)
+    //  this.datadesign = design
+    //  this.datadeve = dev  
+    //  let cont = design.concat(dev)
+     
+    //  console.log(design,'my team',dev,cont)
+    let fetcho = this.fetchGroup()
+
+    fetcho.then(el =>{
+      el.map(el =>{
+        el.team.forEach(name =>{
+          data.map(el =>{
+            console.log(el.nom,'data',name)
+            if(el.nom === name ){
+
+              if(el.occ === 'design' ){
+                this.datadesign.push(el)
+
+              }
+              if(el.occ === 'developper' ){
+                this.datadeve.push(el)
+
+              }
+            }
+      
+          })
+        })
+      })
+    })
+
+    console.log(this.datadesign,'design')
    
   },
 
- 
+  async fetchGroup(){
+     const res = await fetch(`http://localhost:5000/Group`)
+     const data = await res.json()
+   
+     console.log(data,'groupe')
+     return data
+   
+  },
 
 }
 
