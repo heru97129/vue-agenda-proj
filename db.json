@@ -18,7 +18,27 @@
       "image": "/images/male2.jfif",
       "title": "new shit",
       "occ": "developper",
-            "task": true
+      "task": true
+    },
+    {
+      "id": 98161,
+      "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
+      "date": "Tue Nov 08 2022 08:20:33 ",
+      "nom": "mohamed",
+      "image": "/images/male3.webp",
+      "title": "stop the bullshit",
+      "occ": "design",
+      "task": true
+    },
+    {
+      "id": 21926,
+      "text": "will match (depending on your settings almost) anything, but only a single character. ? will make the preceding element optional, i.e. appearing not at all or exactly once. * will match the preceding element multiple times, i.e. not at all or an unlimited amount of times. This will match as many characters as possible. If you combine both to *? you'll get a ungreedy match, essentially matching as few characters as possible (down to 0).",
+      "date": "Tue Nov 08 2022 08:41:46 ",
+      "nom": "mohamed",
+      "image": "/images/male3.webp",
+      "title": "stoicisme",
+      "occ": "design",
+      "task": true
     }
   ],
   "profils": [
@@ -46,9 +66,36 @@
       "password": "Finley",
       "occupation": "Front-End develloper",
       "gendere": "/images/male3.webp",
-      "profil": true,
+      "profil": false,
       "id": 90688
+    },
+    {
+      "nom": "mathieu",
+      "email": "beaujourgregory@gmail.com",
+      "password": "Passe",
+      "occupation": "Front-End develloper",
+      "gendere": "/images/male2.jfif",
+      "profil": true,
+      "id": 90689
     }
   ],
-  "Group": []
+  "Group": [
+    {
+      "name": "king",
+      "team": [
+        "Sophia",
+        "gregory"
+      ],
+      "userIdCurrent": {
+        "nom": "mathieu",
+        "email": "beaujourgregory@gmail.com",
+        "password": "Passe",
+        "occupation": "Front-End develloper",
+        "gendere": "/images/male2.jfif",
+        "profil": true,
+        "id": 90689
+      },
+      "id": 1
+    }
+  ]
 }
