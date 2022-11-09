@@ -41,29 +41,21 @@ export default {
             const res = await fetch(`http://localhost:5000/tasks`)
             const data = await res.json()
 
-            //  let design=  data.filter(el =>  el.occ == 'design')
-            //  let dev =  data.filter(el =>  el.occ == 'developper')
 
-            //  this.datadesign = design
-            //  this.datadeve = dev  
-            //  let cont = design.concat(dev)
-
-            //  console.log(design,'my team',dev,cont)
             let fetcho = this.fetchGroup()
 
-            fetcho.then(el => {
-                el.map(el => {
-                    el.team.forEach(name => {
-                        data.map(el => {
-                            console.log(el.nom, 'data', name)
-                            if (el.nom === name) {
-
-                                if (el.occ === 'design') {
-                                    this.datadesign.push(el)
+            fetcho.then(dataGroup => {
+                dataGroup.map(teamate => {
+                    teamate.team.forEach(name => {
+                        data.map(dataTask => {
+                            if (dataTask.nom === name && teamate.userIdCurrent.profil) {
+                                   console.log(teamate.userIdCurrent)
+                                if (dataTask.occ === 'design') {
+                                    this.datadesign.push(dataTask)
 
                                 }
-                                if (el.occ === 'developper') {
-                                    this.datadeve.push(el)
+                                if (dataTask.occ === 'developper') {
+                                    this.datadeve.push(dataTask)
 
                                 }
                             }

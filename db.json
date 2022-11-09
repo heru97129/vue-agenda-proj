@@ -75,7 +75,7 @@
       "password": "Passe",
       "occupation": "Front-End develloper",
       "gendere": "/images/male2.jfif",
-      "profil": true,
+      "profil": false,
       "id": 90689
     }
   ],
@@ -93,10 +93,44 @@
         "password": "Passe",
         "occupation": "Front-End develloper",
         "gendere": "/images/male2.jfif",
-        "profil": true,
-        "id": 90689
+        "id": 90689,
+        "profil": false
       },
       "id": 1
+    },
+    {
+      "name": "queen",
+      "team": [
+        "mohamed",
+        "gregory"
+      ],
+      "userIdCurrent": {
+        "nom": "Sophia",
+        "email": "Sophia@gmail.com",
+        "password": "Beyonce",
+        "occupation": "Front-End develloper",
+        "gendere": "/images/femel1.jpg",
+        "id": 90686,
+        "profil": false
+      },
+      "id": 2
+    },
+    {
+      "name": "moh group",
+      "team": [
+        "gregory",
+        "mathieu"
+      ],
+      "userIdCurrent": {
+        "nom": "mohamed",
+        "email": "moh@gmail.com",
+        "password": "Finley",
+        "occupation": "Front-End develloper",
+        "gendere": "/images/male3.webp",
+        "id": 90688,
+        "profil": false
+      },
+      "id": 3
     }
   ]
 }

@@ -161,7 +161,7 @@ export default {
             console.log(this.groupData, 'yo')
             const res = await fetch(`http://localhost:5000/Group`)
             const data = await res.json()
-
+           console.log(id,'id')
             data.map(el => {
                 if (el.userIdCurrent.id === id) {
                     this.groupData = el
