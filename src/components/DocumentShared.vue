@@ -31,7 +31,6 @@
     
             <select @change="selectName" name="" id="">
     
-                <option  value="">Choose a Teamate</option>
     
                 <option v-for="(name,index) in dataProfil" :key="index" :value="name.nom">{{name.nom}}</option>
     
@@ -118,33 +117,14 @@ export default {
     },
 
     mounted() {
-        console.log(this.dataTask)
+        console.log(this.dataTask,this.dataProfil)
         this.dataTask
     },
     methods: {
         ToggleText() {
             this.textAdd = !this.textAdd
         },
-        selectName(e) {
-            e.preventDefault()
-            this.tabName.push(e.target.value)
-            console.log(this.tabName)
-            let fetch = this.dataProfil
-            fetch.map((el, i) => {
-
-                this.tabName.forEach(name => {
-                    console.log(this.tabName[i], el.nom)
-
-                    if (name === el.nom && !el.profil) {
-                        console.log(el, 'obje')
-                        this.tabObject = el
-
-                    }
-                })
-            })
-            console.log(this.tabObject)
-        },
-
+    
         onSubmit(e) {
             e.preventDefault()
             console.log(this.dataTask)
@@ -161,7 +141,7 @@ export default {
                 id: Math.floor(Math.random() * 100000),
                 text: this.text,
                 date: str.substring(0, 25),
-                nom: this.tabObject.nom,
+                nom: this.dataProfil.map(el => el.nom).join(),
                 image: this.tabObject.gendere,
                 title: this.title,
                 occ: this.tabObject.occupation,
@@ -170,7 +150,7 @@ export default {
 
             }
 
-            this.nom = '',
+                this.nom = '',
                 this.date = '',
                 this.text = '',
                 this.title = '',

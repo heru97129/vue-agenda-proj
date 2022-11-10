@@ -39,6 +39,14 @@
       "title": "stoicisme",
       "occ": "design",
       "task": true
+    },
+    {
+      "id": 30862,
+      "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
+      "date": "Thu Nov 10 2022 15:32:59 ",
+      "nom": "mathieu",
+      "title": "king",
+      "task": true
     }
   ],
   "profils": [
@@ -75,7 +83,7 @@
       "password": "Passe",
       "occupation": "Front-End develloper",
       "gendere": "/images/male2.jfif",
-      "profil": false,
+      "profil": true,
       "id": 90689
     }
   ],
@@ -94,7 +102,7 @@
         "occupation": "Front-End develloper",
         "gendere": "/images/male2.jfif",
         "id": 90689,
-        "profil": false
+        "profil": true
       },
       "id": 1
     },

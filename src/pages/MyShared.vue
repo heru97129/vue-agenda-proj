@@ -52,7 +52,7 @@ export default {
             const res = await fetch(`http://localhost:5000/Profils`)
             const data = await res.json()
             // profil false
-            let profil = data.filter(el => el.profil === false)
+            let profil = data.filter(el => el.profil === true)
             this.taskProfil = profil
             console.log(this.taskProfil, 'fetch shared')
             return this.taskProfil
