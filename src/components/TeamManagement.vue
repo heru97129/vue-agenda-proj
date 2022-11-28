@@ -1,5 +1,5 @@
 <template>
-    <div class="team-management" ref="surContainer" @mouseup="stop" @mousedown="Slide" @mouseout="stop" @mousemove="moveTeam" >
+    <div class="team-management" ref="surContainer" @touchstart="Slide" @touchmove="moveTeam" @touchend="stop" @mouseup="stop" @mousedown="Slide" @mouseout="stop" @mousemove="moveTeam" >
         <h3>Team management</h3>
 
         <div ref="container" class="container-occup">
@@ -86,7 +86,7 @@ export default {
                 return
             } else {
                 this.$refs.container.style.left = `${e.offsetX - this.startX}px`
-                console.log(typeof this.$refs.container.style.left, this.pressed)
+                console.log(this.$refs.container.style.left)
                 this.bounding()
             }
 
@@ -104,7 +104,6 @@ export default {
         bounding(){
             const container_rect = this.$refs.surContainer.getBoundingClientRect()
             const card_rect = this.$refs.container.getBoundingClientRect()
-            console.log(container_rect,card_rect.left)
             if(  this.$refs.container.style.left > '0px'){
                 this.$refs.container.style.left = '0px'
             }else if(card_rect.right < container_rect.right){
