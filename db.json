@@ -41,11 +41,21 @@
       "task": true
     },
     {
-      "id": 30862,
       "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
       "date": "Thu Nov 10 2022 15:32:59 ",
       "nom": "mathieu",
+      "occ": "developper",
+      "image": "/images/male2.jfif",
       "title": "king",
+      "task": true
+    },
+    {
+      "id": 69885,
+      "text": "this.dataProfil.map(el => el.nom).join()",
+      "date": "Mon Nov 14 2022 10:20:33 ",
+      "nom": "Sophia",
+      "image": "/images/femel1.jpg",
+      "title": "new",
       "task": true
     }
   ],
@@ -109,8 +119,9 @@
     {
       "name": "queen",
       "team": [
+        "gregory",
         "mohamed",
-        "gregory"
+        "mathieu"
       ],
       "userIdCurrent": {
         "nom": "Sophia",

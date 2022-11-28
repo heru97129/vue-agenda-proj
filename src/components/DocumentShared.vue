@@ -130,19 +130,14 @@ export default {
             console.log(this.dataTask)
             let str = new Date().toString()
 
-            // if( this.nom == '' || this.title == ''
-            //  || this.text === '' 
-            // ){
-            //    alert('failed to fullfilled')
-            //    return
-            // }
+       
             const text = {
 
                 id: Math.floor(Math.random() * 100000),
                 text: this.text,
                 date: str.substring(0, 25),
                 nom: this.dataProfil.map(el => el.nom).join(),
-                image: this.tabObject.gendere,
+                image: this.dataProfil.map(el => el.gendere).join(),
                 title: this.title,
                 occ: this.tabObject.occupation,
                 task: true

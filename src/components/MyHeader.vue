@@ -1,8 +1,11 @@
 <template>
     <div class="header">
-    
-        <img :src="this.image" alt="">
-    
+         <div class="img-head">
+        <img :src="this.image" @mouseover="Hoover"  alt="">
+        <div  v-if="showLogout" @click="Logout" class="logout">
+            <p>Logout</p>
+        </div>
+        </div>
         <h2>Hello!<br> <span class="name">{{this.nom}}</span> </h2>
     
     </div>
@@ -17,7 +20,8 @@ export default {
             tasks: '',
             infos: '',
             nom: '',
-            image: ''
+            image: '',
+            showLogout:false
 
 
 
@@ -53,6 +57,15 @@ export default {
             this.nom = this.nom.substring(0, 9)
             console.log(this.nom, this.image)
         },
+        Hoover(){
+            this.showLogout = true
+        },
+        HooverLeave(){
+            this.showLogout = false
+        },
+        Logout(){
+            this.$router.push('/')
+        }
 
     }
 }
@@ -83,5 +96,21 @@ export default {
     padding: .5em;
     border-radius: 50%;
     background-color: rgba(231, 226, 226, 0.297);
+}
+
+.img-head{
+    position: relative;
+}
+
+.logout{
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.245);
+    padding: 0.2em 0.5em;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.logout p{
+    margin: 0;
+    font-size: .8em;
 }
 </style>
