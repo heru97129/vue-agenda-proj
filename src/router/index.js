@@ -10,6 +10,7 @@ import ProfilPage from "@/pages/ProfilPage.vue";
 import GetStarted from "@/pages/GetStarted.vue";
 import LoginPage from "@/pages/LoginPage.vue";
 import AddGroup from "@/pages/AddGroup.vue";
+import TheCalendar from "@/pages/TheCalendar.vue";
 
 
 const routes = [{
@@ -57,6 +58,11 @@ const routes = [{
     path: '/profil',
     name: 'ProfilPage',
     component: ProfilPage,  
+ }
+ ,{
+    path: '/TheCalendar',
+    name: 'TheCalendar',
+    component: TheCalendar,  
  }
 
 ]

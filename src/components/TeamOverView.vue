@@ -12,7 +12,9 @@
 
         </router-link>
         <i class="fa-regular fa-file-code"></i>
+        <router-link to="/TheCalendar">
         <i class="fa-solid fa-chart-pie"></i>
+    </router-link>
         <i class="fa-solid fa-cloud"></i>
 
     </div>

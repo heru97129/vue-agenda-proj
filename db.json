@@ -89,12 +89,21 @@
     },
     {
       "nom": "mathieu",
-      "email": "beaujourgregory@gmail.com",
+      "email": "Mathieu@gmail.com",
       "password": "Passe",
       "occupation": "Front-End develloper",
       "gendere": "/images/male2.jfif",
-      "profil": true,
+      "profil": false,
       "id": 90689
+    },
+    {
+      "nom": "Allen",
+      "email": "Iverson@gmail.com",
+      "password": "TheAnswer",
+      "occupation": "Front-End develloper",
+      "gendere": "/images/male2.jfif",
+      "profil": false,
+      "id": 90690
     }
   ],
   "Group": [
@@ -112,7 +121,7 @@
         "occupation": "Front-End develloper",
         "gendere": "/images/male2.jfif",
         "id": 90689,
-        "profil": true
+        "profil": false
       },
       "id": 1
     },

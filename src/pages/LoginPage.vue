@@ -118,7 +118,9 @@ export default {
             saveName: '',
             saveId: '',
             catchErr: false,
-            profilgroup:''
+            creator : true,
+            profilgroup:'',
+            allEmail: []
        
 
         }
@@ -126,6 +128,7 @@ export default {
     mounted() {
         this.show = true
         this.fetchTasks()
+        this.EmailCheck()
 
     },
     methods: {
@@ -145,6 +148,9 @@ export default {
         },
         async create(e) {
             e.preventDefault()
+              
+
+        
 
             const log = {
                 nom: this.nom,
@@ -155,25 +161,52 @@ export default {
                 profil: false
             }
 
-            // if(this.nom.length > 9){
-            //   alert('9 Chraracters Max!!!')
-            // }
-            if (log.nom != "" || log.email != "" || log.password != "") {
-                const res = await fetch('http://localhost:5000/profils', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json',
-                    },
-                    body: JSON.stringify(log)
-
-                })
-
-                const data = await res.json()
-                this.logs = [...this.logs, data]
-                console.log(data)
+            if(!log.email.match(/@/gm)){
+                alert('format mail only ')
                 this.nom = ""
                 this.email = ""
                 this.password = ""
+                this.occupation = ""
+                return 
+            }
+                
+
+            this.allEmail.forEach(el =>{
+               if(log.email === el){
+                console.log('oihiohoi')
+                this.creator = false
+                location.assign('/login')
+                return 
+
+               }else{
+                console.log('yooooooooooo')
+                return
+               }
+            })
+                
+              console.log(this.creator)
+            if (log.nom != "" || log.email != "" || log.password != "") {
+                console.log(this.creator,'in')
+                       if(this.creator){
+
+                           const res = await fetch('http://localhost:5000/profils', {
+                               method: 'POST',
+                               headers: {
+                                   'content-type': 'application/json',
+                               },
+                               body: JSON.stringify(log)
+           
+                           })
+           
+                           const data = await res.json()
+                           this.logs = [...this.logs, data]
+                           console.log(data)
+                           this.nom = ""
+                           this.email = ""
+                           this.password = ""
+                           this.occupation = ""
+
+                       }
 
 
             } else {
@@ -233,7 +266,15 @@ export default {
 
         },
 
-
+        EmailCheck(){
+           let fetchProfil = this.fetchTasks()
+            fetchProfil.then((el)=>{
+                el.map((profil)=>{
+                    console.log(profil.email)  
+                    this.allEmail.push(profil.email)
+                })
+                 })
+        },
         //   fetch
         async fetchTasks() {
             const res = await fetch(`http://localhost:5000/profils`)
