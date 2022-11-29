@@ -53,6 +53,7 @@ export default {
     name: 'TeamManagement',
 
     data() {
+    
         return {
             pressed: false,
             startX: null,
@@ -70,7 +71,9 @@ export default {
 
         Slide(e) {
             this.pressed = true
+
             console.log('run')
+
             if (e) {
                 this.startX = e.offsetX - this.$refs.container.offsetLeft
  
@@ -83,9 +86,15 @@ export default {
         moveTeam(e) {
 
             if (!this.pressed) {
-                return
+   
+
+                return 
+
             } else {
-                this.$refs.container.style.left = `${e.offsetX - this.startX}px`
+                e.preventDefault();
+                this.$refs.container.classList.add('pointer')
+
+                this.$refs.container.style = `left:${e.offsetX - this.startX}px`
                 console.log(this.$refs.container.style.left)
                 this.bounding()
             }
@@ -99,6 +108,11 @@ export default {
             console.log('stop')
 
             this.pressed = false
+
+            // if(!this.pressed){
+            //     this.$refs.container.classList.remove('pointer')
+
+            // }
         },
 
         bounding(){
@@ -106,6 +120,8 @@ export default {
             const card_rect = this.$refs.container.getBoundingClientRect()
             if(  this.$refs.container.style.left > '0px'){
                 this.$refs.container.style.left = '0px'
+                                this.$refs.container.classList.remove('pointer')
+
             }else if(card_rect.right < container_rect.right){
                 this.$refs.container.style.left = `-${card_rect.width - container_rect.width}px`
 
@@ -125,6 +141,8 @@ export default {
     height: 25vh;
     overflow-x: hidden;
     position: relative;
+  
+    
 
 }
 
@@ -139,9 +157,11 @@ export default {
     width: fit-content;
     position: absolute;
     left:0;
-    pointer-events: none;
 }
 
+.pointer{
+    pointer-events: none;
+}
 
 .occup {
     width: 200px !important;
@@ -150,7 +170,6 @@ export default {
     padding: 0 1em;
     color: white;
     border-radius: 20px;
-    pointer-events: none;
 
 }
 

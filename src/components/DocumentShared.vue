@@ -246,8 +246,9 @@ export default {
 .form-control input,
 select {
     width: 100%;
-    padding: .5em 0em;
+    padding: .5em 0;
     margin-top: .5em;
+    border-radius: 10px;
 }
 
 .form-control input:focus,
@@ -257,6 +258,8 @@ select {
 
 .text-area {
     width: 100%;
+    border-radius: 10px;
+
 }
 
 .btn-send {
@@ -265,6 +268,8 @@ select {
     border: none;
     background-color: black;
     color: white;
+    border-radius: 10px;
+
 }
 
 /* task */

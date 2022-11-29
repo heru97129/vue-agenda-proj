@@ -44,7 +44,6 @@ export default {
             //  consult
             let consult = data.filter(el => el.task === true)
             this.taskData = consult
-            console.log(this.taskData, 'fetch shared')
             return this.taskData
         },
 
@@ -54,7 +53,6 @@ export default {
             // profil false
             let profil = data.filter(el => el.profil === true)
             this.taskProfil = profil
-            console.log(this.taskProfil, 'fetch shared')
             return this.taskProfil
         },
 
@@ -68,8 +66,7 @@ export default {
 
             })
             let data = res.json()
-            console.log(data, 'data', this.taskData)
-            console.log(this.dataProfil, 'profil')
+    
             this.tasks = [...this.tasks, data]
             location.reload()
         },

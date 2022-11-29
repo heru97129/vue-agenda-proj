@@ -206,8 +206,13 @@ export default {
 
 input {
     padding: .5em .5em;
+    border-radius: 10px;
+    outline-color: rgba(0, 191, 255, 0.475);
 }
+input:focus{
+    outline-color: rgba(0, 191, 255, 0.475);
 
+}
 .send {
     width: 100%;
     padding: .5em 0em;
@@ -215,11 +220,15 @@ input {
     border-radius: 5PX;
     color: WHITE;
     font-weight: 600;
+    border-radius: 10px;
+
 }
 
 select {
     padding: .5em 0;
     outline: none;
+    border-radius: 10px;
+
 }
 
 .group-title {
